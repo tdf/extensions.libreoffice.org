@@ -1,0 +1,147 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: tdf.exttempsitepolicy\n"
+"POT-Creation-Date: 2016-04-09 19:35+0000\n"
+"PO-Revision-Date: 2016-04-10 16:01+0100\n"
+"Last-Translator: Andreas Mantke <maand@gmx.de>\n"
+"Language-Team: LANGUAGE <maand@gmx.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: de\n"
+"Language-Name: Deutsch\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+"X-Generator: Poedit 1.5.4\n"
+"Language: Deutsch\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: browser/templates/frontpageview.pt:30
+msgid ""
+"Currently there are ${eup_project_count} LibreOffice extension project(s) "
+"with <span>${DYNAMIC_CONTENT}</span> release(s) available."
+msgstr ""
+"Aktuell sind ${eup_project_count} LibreOffice extension project(s) mit <span>"
+"${DYNAMIC_CONTENT}</span> Release(s) verfügbar."
+
+#: browser/templates/frontpageview.pt:141
+msgid ""
+"Currently there are ${tup_project_count} LibreOffice template project(s) "
+"with <span>${DYNAMIC_CONTENT}</span> release(s) available."
+msgstr ""
+"Aktuell sind ${tup_project_count} LibreOffice Vorlagen (Template) Projekte "
+"mit <span>${DYNAMIC_CONTENT}</span> Release(s) verfügbar."
+
+#: configure.zcml:21
+msgid "Installs the tdf.exttempsitepolicy add-on."
+msgstr "Installiert das tdf.exttempsitepolicy Add-On."
+
+#: configure.zcml:21
+msgid "LibreOffice-Extensions-Templates-Site Policy"
+msgstr "LibreOffice-Extensions-Template-Site-Policy"
+
+#: configure.zcml:36
+msgid "Uninstalls the tdf.exttempsitepolicy add-on."
+msgstr "Deinstalliert das tdf.exttempsitepolicy Add-On."
+
+#. Default: "Compatibility"
+#: browser/templates/frontpageview.pt:115
+msgid "compatiblity"
+msgstr "Kompatibilität"
+
+#. Default: "LibreOffice Extensions are tools that can be added or removed independently from your installation of the main program. Extensions may add new functionality to your copy of LibreOffice, or may make existing functionality easier to use."
+#: browser/templates/frontpageview.pt:23
+msgid "description_extensions"
+msgstr ""
+"LibreOffice Extensions sind Ergänzungen, die unabhängig von der Installation "
+"des Hauptprogramms hinzugefügt und entfernt werden können. Extensions können "
+"Ihrer Kopie von LibreOffice neue Funktionen hinzufügen oder bereits "
+"existierende einfach benutzbarer gestalten."
+
+#. Default: "LibreOffice offers a wide variety of features, and when you look for additional functionality, there may well be extensions and templates that add that! This site offers a wide range of extensions and templates to satisfy your needs. What's more, people, maybe you, can develop more extensions or templates and offer them for the collecting on this site."
+#: browser/templates/frontpageview.pt:15
+msgid "description_extensions_templates"
+msgstr ""
+"LibreOffice stellt bereits sehr viele Funktionen bereit. Und falls Sie nach "
+"weiteren ergänzenden Funktionen suchen, so gibt es eventuell eine Extension "
+"oder eine Vorlage, die diese Funktion hinzufügt! Diese Webseite stellt ein "
+"breites Angebot von Extensions und Vorlagen bereit, um Ihren Bedarf zu "
+"befriedigen. Aber mehr noch, sie können selbst weitere Extensions entwickeln "
+"oder Vorlagen erstellen und sie auf dieser Seite anderen Anwendern anbieten."
+
+#. Default: "LibreOffice remains committed to providing users with quality software authored under <a class=\"external-link\" href=\"http://www.gnu.org/philosophy/free-sw.html\">free software licenses</a>, and, as such, our catalogue of extensions and templates are published under <a class=\"external-link\" href=\"http://www.gnu.org/philosophy/free-sw.html\">free software licenses</a>."
+#: browser/templates/frontpageview.pt:242
+msgid "description_publish_free_software_license"
+msgstr ""
+"LibreOffice ist weiterhin engagiert, Anwendern unter <a class=\"external-link"
+"\" href=\"http://www.gnu.org/philosophy/free-sw.html\">freien Software "
+"Lizenzen</a> erstellte Software zur Verfügung zu stellen. Die hier "
+"gelisteten Extensions und Vorlagen (Templates) sind daher auch unter <a "
+"class=\"external-link\" href=\"http://www.gnu.org/philosophy/free-sw.html"
+"\">Freien Software Lizenzen</a> veröffentlicht."
+
+#. Default: "LibreOffice Templates offer you a way to avoid duplicating repetitive actions when creating new text documents, spreadsheets, or presentations. They also offer a way to maintain consistency of document layout and standard content, and may, for example, be used to maintain consistent branding elements when used in a work place."
+#: browser/templates/frontpageview.pt:131
+msgid "description_templates"
+msgstr ""
+"LibreOffice Vorlagen ermöglichen Ihnen, sich wiederholende Arbeiten ein "
+"weiteres Mal durchführen zu müssen, wenn sie neue Textdokumente, "
+"Tabellendokumente oder Präsentationen erstellen. Sie helfen auch dabei, die "
+"Konsistenz des Layouts der Dokumente und von Standardinhalten zu pflegen und "
+"auf auf Stand zu halten. Sie können daher beispielsweise verwendet werden, "
+"um den Markenauftritt konsistent zu erhalten, wenn sie am Arbeitsplatz "
+"verwendet werden"
+
+#: browser/templates/frontpageview.pt:74
+msgid "in"
+msgstr "in"
+
+#. Default: "Release Summary"
+#: browser/templates/frontpageview.pt:113
+msgid "release_summary"
+msgstr "Release Überblick"
+
+#: configure.zcml:36
+msgid "tdf.exttempsitepolicy"
+msgstr "tdf.exttempsitepolicy"
+
+#. Default: "Extensions"
+#: browser/templates/frontpageview.pt:22
+msgid "title_extensions"
+msgstr "Extensions"
+
+#. Default: "Most Recent Extension Releases"
+#: browser/templates/frontpageview.pt:91
+msgid "title_latest_extension_releases"
+msgstr "Neueste Extension Releases"
+
+#. Default: "Most Recent Template Releases"
+#: browser/templates/frontpageview.pt:203
+msgid "title_latest_template_releases"
+msgstr "Neueste Template Releases"
+
+#. Default: "LibreOffice Extensions and Templates"
+#: browser/templates/frontpageview.pt:13
+msgid "title_libreoffice_extensions_and_templates"
+msgstr "LibreOffice Extensions und Vorlagen (Templates)"
+
+#. Default: "Licenses"
+#: browser/templates/frontpageview.pt:241
+msgid "title_licenses"
+msgstr "Lizenzen"
+
+#. Default: "Most Recent Extension Projects"
+#: browser/templates/frontpageview.pt:32
+msgid "title_most_recent_extension_projects"
+msgstr "Neueste Extension Projekte"
+
+#. Default: "Most Recent Template Projects"
+#: browser/templates/frontpageview.pt:143
+msgid "title_most_recent_template_projects"
+msgstr "Neueste Vorlagen Projekte"
+
+#. Default: "Templates"
+#: browser/templates/frontpageview.pt:130
+msgid "title_templates"
+msgstr "Vorlagen (Templates)"

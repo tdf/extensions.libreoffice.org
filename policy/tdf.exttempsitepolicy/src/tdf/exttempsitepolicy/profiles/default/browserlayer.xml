@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<layers>
+  <layer
+      name="tdf.exttempsitepolicy"
+      interface="tdf.exttempsitepolicy.interfaces.ITdfExttempsitepolicyLayer"
+      />
+</layers>

@@ -1,0 +1,49 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="tdf.exttempsitepolicy">
+
+  <includeDependencies package="." />
+
+  <i18n:registerTranslations directory="locales" />
+
+  <include package=".browser" />
+
+
+  <genericsetup:registerProfile
+      name="default"
+      title="LibreOffice-Extensions-Templates-Site Policy"
+      directory="profiles/default"
+      description="Installs the tdf.exttempsitepolicy add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:importStep
+      name="tdf.exttempsitepolicy-postInstall"
+      title="tdf.exttempsitepolicy post_install import step"
+      description="Post install import step from tdf.exttempsitepolicy"
+      handler=".setuphandlers.post_install">
+  </genericsetup:importStep>
+
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="tdf.exttempsitepolicy"
+      directory="profiles/uninstall"
+      description="Uninstalls the tdf.exttempsitepolicy add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:importStep
+      name="tdf.exttempsitepolicy-uninstall"
+      title="tdf.exttempsitepolicy uninstall import step"
+      description="Import step run during ininstalling tdf.exttempsitepolicy"
+      handler=".setuphandlers.uninstall">
+  </genericsetup:importStep>
+
+  <utility
+      factory=".setuphandlers.HiddenProfiles"
+      name="tdf.exttempsitepolicy-hiddenprofiles" />
+
+</configure>

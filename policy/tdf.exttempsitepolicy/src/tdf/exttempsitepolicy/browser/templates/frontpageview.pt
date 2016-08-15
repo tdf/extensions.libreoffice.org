@@ -1,0 +1,256 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="tdf.exttempsitepolicy">
+
+
+<body>
+<metal:main fill-slot="main"
+             tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+                         cropText nocall:context/@@plone/cropText;">
+
+    <h1 i18n:translate="title_libreoffice_extensions_and_templates">LibreOffice Extensions and Templates</h1>
+
+    <div class="documentDescription description" i18n:translate="description_extensions_templates">
+        LibreOffice offers a wide variety of features, and when you look for additional functionality,
+        there may well be extensions and templates that add that! This site offers a wide range of
+        extensions and templates to satisfy your needs. What's more, people, maybe you, can develop
+        more extensions or templates and offer them for the collecting on this site.
+    </div>
+
+ <div id="extension_projects">
+    <h2 i18n:translate="title_extensions">Extensions</h2>
+    <p i18n:translate="description_extensions">LibreOffice Extensions are tools that can be added or removed independently from your
+        installation of the main program. Extensions may add new functionality to your copy
+        of LibreOffice, or may make existing functionality easier to use.
+    </p>
+        <p class="current-extensionprojects" i18n:translate="">Currently there are
+                            <span tal:content="view/eupproject_count" i18n:name="eup_project_count" /> LibreOffice extension project(s) with
+                            <span tal:content="view/euprelease_count" /> release(s) available.
+                    </p>
+        <h3 i18n:translate="title_most_recent_extension_projects">Most Recent Extension Projects</h3>
+        <div class=""
+                            tal:define="results python:view.get_newest_extensionprojects();
+                                        Batch python:modules['Products.CMFPlone'].Batch;
+				                        b_size python:5;b_start python:0;b_start request/b_start | b_start;
+				                        ">
+                        <tal:results condition="results"
+                                     define="batch python:Batch(results, b_size, int(b_start), orphan=1);">
+                            <ul class="newestextensionprojects">
+                                <li tal:repeat="result batch">
+                                    <tal:entry
+						                define="project result/getObject;
+						                        url result/getURL;
+							                    projectURL project/absolute_url;
+							                    result_type result/portal_type;
+							                    zoomid   python:project.id.replace('.', '_');
+							                    screenshot   project/screenshot | nothing">
+
+                                        <h4 style="border-top: none">
+                                            <a href="" tal:attributes="href projectURL;" 	tal:content="project/pretty_title_or_id">
+                                                <tal:comment replace="nothing">Extension One</tal:comment></a>
+                                        </h4>
+                                        <div tal:content="structure project/@@rate-if-you-dare" />
+                                        <div class="project-thumb-thumbzoom" tal:condition="screenshot">
+                                                 <a tal:attributes="href projectURL">
+                                                     <img tal:condition="screenshot"
+                                                             tal:replace="structure project/@@images/screenshot/thumb" />
+                                                 </a>
+                                             </div>
+                                             <span class="project-thumb" tal:condition="not:screenshot">
+                                                 <img tal:condition="project/project_logo|nothing"
+                                                         tal:define="scales project/@@images;
+                                                                 projectlogo project/@@images/project_logo;
+                                                                         scale python:scales.scale('project_logo', 'tile')"
+                                                         tal:replace="structure python:scale and scale.tag(css_class='tupcenterprojectlogo') or None" />
+                                             </span>
+                                        <div class="product-details">
+                                                 <span class="product-leadin">
+                                                     <span tal:define="LatestReleaseDate project/view/latest_release_date;"
+                                                           tal:replace="python:toLocalizedTime(LatestReleaseDate , long_format=0)">
+                                                            Jan. 22, 2016
+                                                     </span>
+                                                     <span i18n:translate="">in</span>
+                                                     <span tal:replace="python:', '.join(result.getObject().category_choice)"></span>
+                                           </span>
+                                            <p class="product-description"
+                                                         tal:content="python:cropText(project.Description(),200)">
+                                                     <tal:comment replace="nothing">Extension Project Description.</tal:comment>
+                                            </p>
+                                           </div>
+                                             <div class="visualClear" ></div>
+                                    </tal:entry>
+                                </li>
+                            </ul>
+                        </tal:results>
+                    </div>
+</div>
+
+    <div id="latest_extension_releases">
+        <h3 i18n:translate="title_latest_extension_releases">Most Recent Extension Releases</h3>
+        <div class=""
+                            tal:define="results python:view.get_latest_extension_releases();
+                                        Batch python:modules['Products.CMFPlone'].Batch;
+				                        b_size python:5;b_start python:0;b_start request/b_start | b_start;
+				                        ">
+                        <tal:results condition="results"
+                                     define="batch python:Batch(results, b_size, int(b_start), orphan=1);">
+                            <ul class="latestextensionreleases">
+                                <li tal:repeat="result batch">
+                                    <tal:entry
+						                define="release result/getObject;
+						                        url result/getURL;
+							                    releaseURL release/absolute_url;
+							                    result_type result/portal_type;
+							                    zoomid   python:release.id.replace('.', '_');
+							                    screenshot   release/getScreenshot | nothing">
+
+                                        <h4 style="border-top: none">
+                                            <a href="" tal:attributes="href releaseURL;" 	tal:content="release/pretty_title_or_id">
+                                                <tal:comment replace="nothing">Extension Release One</tal:comment></a>
+                                        </h4>
+                                        <p><b i18n:translate="release_summary">Release Summary</b><br />
+                                        <span tal:content="structure release/description">Description</span></p>
+                                        <b i18n:translate="compatiblity" >Compatibility</b>
+                                        <p> <tal:loop repeat="compatibility_choice release/compatibility_choice">
+                                                 <span tal:content="compatibility_choice"  />,
+                                            </tal:loop>
+                                        </p>
+                                    </tal:entry>
+                                </li>
+                            </ul>
+                        </tal:results>
+                    </div>
+
+
+    </div>
+
+   <div id="template_projects">
+    <h2 i18n:translate="title_templates">Templates</h2>
+    <p i18n:translate="description_templates">LibreOffice Templates offer you a way to avoid duplicating repetitive actions when creating new
+        text documents, spreadsheets, or presentations. They also offer a way to maintain consistency
+        of document layout and standard content, and may, for example, be used to maintain consistent
+        branding elements when used in a work place.
+    </p>
+
+
+
+        <p class="current-templateprojects" i18n:translate="">Currently there are
+                            <span tal:content="view/tupproject_count" i18n:name="tup_project_count" /> LibreOffice template project(s) with
+                            <span tal:content="view/tuprelease_count" /> release(s) available.
+                    </p>
+        <h3 i18n:translate="title_most_recent_template_projects">Most Recent Template Projects</h3>
+        <div class=""
+                            tal:define="results python:view.get_newest_templateprojects();
+                                        Batch python:modules['Products.CMFPlone'].Batch;
+				                        b_size python:5;b_start python:0;b_start request/b_start | b_start;
+				                        ">
+                        <tal:results condition="results"
+                                     define="batch python:Batch(results, b_size, int(b_start), orphan=1);">
+                            <ul class="newesttemplateprojects">
+                                <li tal:repeat="result batch">
+                                    <tal:entry
+						                define="project result/getObject;
+						                        url result/getURL;
+							                    projectURL project/absolute_url;
+							                    result_type result/portal_type;
+							                    zoomid   python:project.id.replace('.', '_');
+							                    screenshot   project/screenshot | nothing">
+
+                                        <h4 style="border-top: none">
+                                            <a href="" tal:attributes="href projectURL;" 	tal:content="project/pretty_title_or_id">
+                                                <tal:comment replace="nothing">Template One</tal:comment></a>
+                                        </h4>
+                                        <div tal:content="structure project/@@rate-if-you-dare" />
+                                        <div class="project-thumb-thumbzoom" tal:condition="screenshot">
+                                                 <a tal:attributes="href projectURL">
+                                                     <img tal:condition="screenshot"
+                                                             tal:replace="structure project/@@images/screenshot/thumb" />
+                                                 </a>
+                                             </div>
+                                         <span class="project-thumb" tal:condition="not:screenshot">
+                                                 <img tal:condition="project/project_logo|nothing"
+                                                         tal:define="scales project/@@images;
+                                                                 projectlogo project/@@images/project_logo;
+                                                                         scale python:scales.scale('project_logo', 'tile')"
+                                                         tal:replace="structure python:scale and scale.tag(css_class='tupcenterprojectlogo') or None" />
+                                             </span>
+
+                                        <div class="product-details">
+                                                 <span class="product-leadin">
+                                                     <span tal:define="LatestReleaseDate project/view/latest_release_date;"
+                                                           tal:replace="python:toLocalizedTime(LatestReleaseDate , long_format=0)">
+                                                            Jan. 22, 2016
+                                                     </span>
+
+                                                     <span i18n:translate="">in</span>
+                                                     <span tal:replace="python:', '.join(result.getObject().category_choice)"></span>
+                                           </span>
+                                                 <p class="product-description"
+                                                         tal:content="structure project/description">
+                                                     <tal:comment replace="nothing">Template Project Description.</tal:comment>
+                                                 </p>
+                                           </div>
+                                             <div class="visualClear" ></div>
+                                    </tal:entry>
+                                </li>
+                            </ul>
+                        </tal:results>
+                    </div>
+       </div>
+
+        <div id="latest_template_releases">
+        <h3 i18n:translate="title_latest_template_releases">Most Recent Template Releases</h3>
+        <div class=""
+                            tal:define="results python:view.get_latest_template_releases();
+                                        Batch python:modules['Products.CMFPlone'].Batch;
+				                        b_size python:5;b_start python:0;b_start request/b_start | b_start;
+				                        ">
+                        <tal:results condition="results"
+                                     define="batch python:Batch(results, b_size, int(b_start), orphan=1);">
+                            <ul class="latesttemplatereleases">
+                                <li tal:repeat="result batch">
+                                    <tal:entry
+						                define="release result/getObject;
+						                        url result/getURL;
+							                    releaseURL release/absolute_url;
+							                    result_type result/portal_type;
+							                    zoomid   python:release.id.replace('.', '_');">
+
+                                        <h4 style="border-top: none">
+                                            <a href="" tal:attributes="href releaseURL;" 	tal:content="release/pretty_title_or_id">
+                                                <tal:comment replace="nothing">Template Release One</tal:comment></a>
+                                        </h4>
+                                        <p><b i18n:translate="release_summary">Release Summary</b><br />
+                                        <span tal:content="structure release/description">Description</span></p>
+                                        <b i18n:translate="compatiblity" >Compatibility</b>
+                                        <p> <tal:loop repeat="compatibility_choice release/compatibility_choice">
+                                                 <span tal:content="compatibility_choice"  />,
+                                            </tal:loop>
+                                        </p>
+                                    </tal:entry>
+                                </li>
+                            </ul>
+                        </tal:results>
+                    </div>
+
+
+    </div>
+
+<h2 i18n:translate="title_licenses">Licenses</h2>
+        <p i18n:translate="description_publish_free_software_license">LibreOffice remains committed to providing users with quality software authored under
+        <a class="external-link" href="http://www.gnu.org/philosophy/free-sw.html">free software licenses</a>,
+        and, as such, our catalogue of extensions and templates are published under
+        <a class="external-link" href="http://www.gnu.org/philosophy/free-sw.html">free software licenses</a>.
+     </p>
+
+
+
+
+</metal:main>
+
+</body>
+</html>
