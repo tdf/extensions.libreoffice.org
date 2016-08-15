@@ -1,0 +1,5 @@
+====================
+tdf.extensioncentertheme
+====================
+
+User documentation
