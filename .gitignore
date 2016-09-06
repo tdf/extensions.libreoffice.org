@@ -10,7 +10,6 @@ bin/
 buildout-cache/
 develop-eggs/
 parts/
-src/*
 !src/tdf
 var/
 htmlcov/

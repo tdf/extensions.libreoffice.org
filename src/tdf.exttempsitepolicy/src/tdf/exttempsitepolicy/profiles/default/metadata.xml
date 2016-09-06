@@ -5,7 +5,7 @@
     <dependency>profile-tdf.extensionuploadcenter:default</dependency>
     <dependency>profile-tdf.templateuploadcenter:default</dependency>
     <dependency>profile-cioppino.twothumbs:default</dependency>
-    <dependency>profile-collective.ATClamAV:default</dependency>
+    <!-- <dependency>profile-collective.ATClamAV:default</dependency> -->
     <dependency>profile-tdf.extensioncentertheme:default</dependency>
   </dependencies>
 </metadata>
