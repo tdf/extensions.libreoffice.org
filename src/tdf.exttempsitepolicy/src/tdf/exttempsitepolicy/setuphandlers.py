@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from Products.CMFPlone.interfaces import INonInstallable
 from zope.interface import implementer
+from plone import api
 
 
 @implementer(INonInstallable)
@@ -17,7 +18,11 @@ def post_install(context):
     """Post install script"""
     if context.readDataFile('tdfexttempsitepolicy_default.txt') is None:
         return
-    # Do something during the installation of this package
+
+    portal = context.getSite()
+    portal.setLayout('frontpageview')
+    if getattr(portal, 'front-page', False):
+        api.content.delete(portal['front-page'])
 
 
 def uninstall(context):
