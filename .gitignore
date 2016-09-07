@@ -19,3 +19,4 @@ output.xml
 *.swp
 log.html
 report.html
+etc/nginx
