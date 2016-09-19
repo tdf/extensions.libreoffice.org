@@ -1,0 +1,6 @@
+[report]
+include =
+    src/tdf/*
+omit =
+    */test*
+    */upgrades/*

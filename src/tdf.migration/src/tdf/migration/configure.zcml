@@ -1,0 +1,59 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:transmogrifier="http://namespaces.plone.org/transmogrifier"
+    i18n_domain="tdf.migration">
+
+  <includeDependencies package="." />
+
+  <browser:page
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      name="df_migration_main"
+      class=".helpers.DFMigrationMain"
+      permission="zope2.View"
+      />
+
+  <browser:page
+      for="*"
+      name="debug"
+      class=".helpers.MagicDebug"
+      permission="zope2.View"
+      />
+
+  <utility
+      component=".blueprints.ReleaseFile2Fields"
+      name="tdf.migration.releasefile2fields"
+      />
+
+
+  <transmogrifier:registerConfig
+      name="df.main"
+      title="Migration configuration for querying the catalog of a Plone site"
+      configuration="df.cfg"
+      />
+
+  <genericsetup:registerProfile
+      name="default"
+      title="tdf.migration"
+      directory="profiles/default"
+      description="Installs the tdf.migration add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      post_handler=".setuphandlers.post_install"
+      />
+
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="tdf.migration (uninstall)"
+      directory="profiles/uninstall"
+      description="Uninstalls the tdf.migration add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      post_handler=".setuphandlers.uninstall"
+      />
+
+  <utility
+      factory=".setuphandlers.HiddenProfiles"
+      name="tdf.migration-hiddenprofiles" />
+
+</configure>
