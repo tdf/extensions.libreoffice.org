@@ -4936,3 +4936,7 @@ div.project-thumb-thumbzoom img {
     width: 100%
     margin-bottom: 2em;
 }
+
+.template-frontpageview .plone-breadcrumb {
+  display: none;
+}
