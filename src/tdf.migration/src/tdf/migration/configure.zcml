@@ -10,8 +10,15 @@
 
   <browser:page
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-      name="df_migration_main"
-      class=".helpers.DFMigrationMain"
+      name="df-migration-templates"
+      class=".helpers.DFMigrationTemplates"
+      permission="zope2.View"
+      />
+
+  <browser:page
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      name="df-migration-extensions"
+      class=".helpers.DFMigrationExtensions"
       permission="zope2.View"
       />
 
@@ -27,11 +34,21 @@
       name="tdf.migration.releasefile2fields"
       />
 
+  <utility
+      component=".blueprints.DFFieldsCorrector"
+      name="tdf.migration.dffieldscorrector"
+      />
 
   <transmogrifier:registerConfig
-      name="df.main"
+      name="df.extensions"
       title="Migration configuration for querying the catalog of a Plone site"
-      configuration="df.cfg"
+      configuration="df-extensions.cfg"
+      />
+
+  <transmogrifier:registerConfig
+      name="df.templates"
+      title="Migration configuration for querying the catalog of a Plone site"
+      configuration="df-templates.cfg"
       />
 
   <genericsetup:registerProfile

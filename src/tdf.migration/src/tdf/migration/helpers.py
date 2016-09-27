@@ -14,13 +14,23 @@ class PloneorgMigrationMain(BrowserView):
         transmogrifier('plone.org.main')
 
 
-class DFMigrationMain(BrowserView):
+class DFMigrationTemplates(BrowserView):
 
     def __call__(self):
         alsoProvides(self.request, IDisableCSRFProtection)
         portal = api.portal.get()
         transmogrifier = Transmogrifier(portal)
-        transmogrifier('df.main')
+        transmogrifier('df.templates')
+        return 'DONE!'
+
+
+class DFMigrationExtensions(BrowserView):
+
+    def __call__(self):
+        alsoProvides(self.request, IDisableCSRFProtection)
+        portal = api.portal.get()
+        transmogrifier = Transmogrifier(portal)
+        transmogrifier('df.extensions')
         return 'DONE!'
 
 
