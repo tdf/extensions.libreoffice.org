@@ -4937,6 +4937,10 @@ div.project-thumb-thumbzoom img {
     margin-bottom: 2em;
 }
 
-.template-frontpageview .plone-breadcrumb {
+.portaltype-plone-site .plone-breadcrumb {
   display: none;
+}
+
+.sortby-compatibility {
+  margin-top: 10px;
 }
