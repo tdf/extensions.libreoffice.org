@@ -129,6 +129,10 @@ class DFFieldsCorrector(object):
                     if item.get('logo', False):
                         item['project_logo'] = item['logo']
 
+                    # Get rid of all the mailto:
+                    if item.get('contactAddress', False):
+                        item['contactAddress'] = item['contactAddress'].replace('mailto:', '')
+
             if item.get('_type', False):
                 if item.get('_type') == 'tdf.templateuploadcenter.tuprelease' or \
                    item.get('_type') == 'tdf.extensionuploadcenter.euprelease':
@@ -141,5 +145,8 @@ class DFFieldsCorrector(object):
 
                     item['licenses_choice'] = licenses
                     item['compatibility_choice'] = item['compatibility']
+
+                    if item.get('contact_address2', False):
+                        item['contact_address2'] = item['contact_address2'].replace('mailto:', '')
 
             yield item
