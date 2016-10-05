@@ -23,6 +23,13 @@
       />
 
   <browser:page
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      name="getridofmailtos"
+      class=".helpers.GetRidOfMailtos"
+      permission="zope2.View"
+      />
+
+  <browser:page
       for="*"
       name="debug"
       class=".helpers.MagicDebug"
