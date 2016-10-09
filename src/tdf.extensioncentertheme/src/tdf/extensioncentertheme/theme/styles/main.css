@@ -241,7 +241,8 @@ div.project-thumb-thumbzoom img {
 .sortby-compatibility {
   margin-top: 10px; }
 
-.current-extensionprojects {
+.current-extensionprojects, 
+.current-templateprojects {
   font-size: 1.75em;
   background-color: #C0C0C0;
   border-radius: 0.3em;
@@ -250,7 +251,8 @@ div.project-thumb-thumbzoom img {
   padding-top: 0.3em;
   margin-top: 20px;
   margin-bottom: 30px; }
-  .current-extensionprojects span {
+  .current-extensionprojects span,
+  .current-templateprojects span {
     color: #00A500;
     font-weight: bold; }
 
