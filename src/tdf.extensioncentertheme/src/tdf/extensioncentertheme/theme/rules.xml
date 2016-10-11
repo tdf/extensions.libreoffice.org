@@ -9,14 +9,14 @@
   <xi:include href="++theme++barceloneta/rules.xml" />
 
   <append css:theme="head">
-    <link rel="stylesheet" type="text/css" media="screen" href="++theme++barceloneta/less/barceloneta-compiled.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="++theme++tdf.extensioncentertheme/styles/main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{$portal_url}/++theme++barceloneta/less/barceloneta-compiled.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{$portal_url}/++theme++tdf.extensioncentertheme/styles/main.css" />
   </append>
 
   <rules css:if-content="#visual-portal-wrapper">
 
     <replace content="a[@id='portal-logo']/img">
-      <img src="++theme++tdf.extensioncentertheme/logo.png" alt="logo" title="logo" />
+      <img src="{$portal_url}/++theme++tdf.extensioncentertheme/logo.png" alt="logo" title="logo" />
     </replace>
 
     <drop css:content="#portal-footer-signature" />
