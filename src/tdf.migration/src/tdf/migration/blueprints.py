@@ -149,4 +149,9 @@ class DFFieldsCorrector(object):
                     if item.get('contact_address2', False):
                         item['contact_address2'] = item['contact_address2'].replace('mailto:', '')
 
+                    # Copying id to releasenumber
+                    if item.get('id', False):
+                        item['releasenumber'] = item['id']
+                    # Prefill the projecttitle
+                    item['projecttitle'] = obj.aq_parent.title
             yield item
