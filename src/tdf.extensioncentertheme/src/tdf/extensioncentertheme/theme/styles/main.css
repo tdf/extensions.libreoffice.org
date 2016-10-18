@@ -241,7 +241,7 @@ div.project-thumb-thumbzoom img {
 .sortby-compatibility {
   margin-top: 10px; }
 
-.current-extensionprojects, 
+.current-extensionprojects,
 .current-templateprojects {
   font-size: 1.75em;
   background-color: #C0C0C0;
@@ -258,3 +258,6 @@ div.project-thumb-thumbzoom img {
 
 #by-category ol {
   padding: 0; }
+
+#portal-anontools li a {
+  color: #FFF; }
