@@ -1,8 +1,10 @@
 /* TDF-Extras */
 h1,
-h2,
-h3 {
+h2 {
   color: #00A500; }
+
+h3 {
+  color: #626c72; }
 
 a {
   color: #00A500; }

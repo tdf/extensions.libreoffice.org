@@ -1,11 +1,16 @@
 /* TDF-Extras */
 $brand-main: #00A500;
+$brand-alternate: #626c72;
 
 h1,
-h2,
-h3 {
+h2 {
   color: $brand-main;
 }
+
+h3 {
+  color: $brand-alternate;
+}
+
 a {
   color: $brand-main;
   &:hover {
