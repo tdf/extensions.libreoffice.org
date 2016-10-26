@@ -17,6 +17,18 @@ migration_error = logging.getLogger('migration_error')
 
 AVAILABLE_FIELDS = ['file', 'file1', 'file2', 'file3', 'file4', 'file5']
 
+LICENSES_MAP = {
+ 'GPL': 'GNU-GPL-v2 (GNU General Public License Version 2)',
+ 'GPL-v3': 'GNU-GPL-v3+ (General Public License Version 3 and later)',
+ 'LGPL-v2.1': 'LGPL-v2.1 (GNU Lesser General Public License Version 2.1)',
+ 'LGPL-v3+': 'LGPL-v3+ (GNU Lesser General Public License Version 3 and later)',
+ 'BSD': 'BSD (BSD License (revised))',
+ 'MPL-v1.1': 'MPL-v1.1 (Mozilla Public License Version 1.1)',
+ 'CC-by-sa-v3': 'CC-by-sa-v3 (Creative Commons Attribution-ShareAlike 3.0)',
+ 'AL-v2': 'AL-v2 (Apache License Version 2.0)',
+ 'Public Domain': 'Public Domain',
+ 'OSI': 'OSI (Other OSI Approved)'
+}
 
 class ReleaseFile2Fields(object):
     classProvides(ISectionBlueprint)
@@ -45,7 +57,6 @@ class ReleaseFile2Fields(object):
 
                 release = self.context.unrestrictedTraverse(str(item['_path']).lstrip('/'), None)
                 if not release:
-                    import ipdb; ipdb.set_trace()
                     yield item
 
                 # Get the files below it from the item's original_path
@@ -126,8 +137,8 @@ class DFFieldsCorrector(object):
                     item['details'] = item['text']
                     item['category_choice'] = item['categories']
                     item['documentation_link'] = item['documentationLink']
-                    if item.get('logo', False):
-                        item['project_logo'] = item['logo']
+                    if item.get('_datafield_logo', False):
+                        item['_datafield_project_logo'] = item['_datafield_logo']
 
                     # Get rid of all the mailto:
                     if item.get('contactAddress', False):
@@ -144,6 +155,12 @@ class DFFieldsCorrector(object):
                             licenses.extend([item[fname]] if isinstance(item[fname], unicode) else item[fname])
 
                     item['licenses_choice'] = licenses
+                    # Maping from old to new licenses
+                    if item.get('_type') == 'tdf.templateuploadcenter.tuprelease':
+                        item['licenses_choice'] = [LICENSES_MAP[license] for license in licenses]
+                    else:
+                        item['licenses_choice'] = [LICENSES_MAP[license] for license in licenses]
+
                     item['compatibility_choice'] = item['compatibility']
 
                     if item.get('contact_address2', False):
@@ -154,4 +171,5 @@ class DFFieldsCorrector(object):
                         item['releasenumber'] = item['id']
                     # Prefill the projecttitle
                     item['projecttitle'] = obj.aq_parent.title
+
             yield item
