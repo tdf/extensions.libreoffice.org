@@ -30,6 +30,29 @@ LICENSES_MAP = {
  'OSI': 'OSI (Other OSI Approved)'
 }
 
+EXT_CAT_MAPPING = {
+  'All modules': 'All modules',
+  'Clipart': 'Clipart',
+  'Makro': 'Makro',
+  'Gallery Contents': 'Gallery Contents',
+  'Language Tools': 'Language Tools',
+  'Dictionary': 'Dictionary',
+  'Writer_Extension': 'Writer Extension',
+  'Calc_Extension': 'Calc Extension',
+  'Impress_Extension': 'Impress Extension',
+  'Draw_Extension': 'Draw Extension',
+  'Base_Extension': 'Base Extension',
+  'Math_Extension': 'Math Extension',
+  'Extension_Building': 'Extension Building',
+  'Template Extension': 'Template Extension',
+}
+
+TEM_CAT_MAPPING = {
+  'CD / DVD': 'CD / DVD|CD',
+  'Curriculum Vitae / Resume': 'Curriculum Vitae',
+}
+
+
 class ReleaseFile2Fields(object):
     classProvides(ISectionBlueprint)
     implements(ISection)
@@ -135,7 +158,6 @@ class DFFieldsCorrector(object):
                 if item.get('_type') == 'tdf.templateuploadcenter.tupproject' or \
                    item.get('_type') == 'tdf.extensionuploadcenter.eupproject':
                     item['details'] = item['text']
-                    item['category_choice'] = item['categories']
                     item['documentation_link'] = item['documentationLink']
                     if item.get('_datafield_logo', False):
                         item['_datafield_project_logo'] = item['_datafield_logo']
@@ -143,6 +165,12 @@ class DFFieldsCorrector(object):
                     # Get rid of all the mailto:
                     if item.get('contactAddress', False):
                         item['contactAddress'] = item['contactAddress'].replace('mailto:', '')
+
+                if item.get('_type') == 'tdf.extensionuploadcenter.eupproject':
+                    item['category_choice'] = [EXT_CAT_MAPPING[category] for category in item['categories']]
+
+                if item.get('_type') == 'tdf.extensionuploadcenter.tupproject':
+                    item['category_choice'] = [TEM_CAT_MAPPING.get(category, category) for category in item['categories']]
 
             if item.get('_type', False):
                 if item.get('_type') == 'tdf.templateuploadcenter.tuprelease' or \
