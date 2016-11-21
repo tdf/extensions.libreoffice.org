@@ -1,3 +1,8 @@
+from Products.Five.browser import BrowserView
+from plone import api
+from plone.protect.interfaces import IDisableCSRFProtection
+from zope.interface import alsoProvides
+
 import json
 import transaction
 
@@ -27,3 +32,35 @@ def import_userdb(site):
             print('There is already an user with the id: {}'.format(user))
 
     transaction.commit()
+
+
+class ImportUserInformation(BrowserView):
+    def __call__(self):
+        alsoProvides(self.request, IDisableCSRFProtection)
+        fext = open('userdata-extensions.txt', 'r')
+        ftemp = open('userdata-templates.txt', 'r')
+        ext = [tuple(a) for a in json.loads(fext.read())]
+        temp = [tuple(a) for a in json.loads(ftemp.read())]
+        fext.close()
+        ftemp.close()
+
+        for user, fullname, email in temp:
+            user_obj = api.user.get(user)
+            try:
+                user_obj.setMemberProperties(
+                    dict(fullname=fullname, email=email)
+                )
+                api.user.grant_roles(user=user_obj, roles=['Member', ])
+            except:
+                print('error on user {}'.format(user))
+
+        # Users in ext are last, we took them as canonical
+        for user, fullname, email in ext:
+            user_obj = api.user.get(user)
+            try:
+                user_obj.setMemberProperties(
+                    dict(fullname=fullname, email=email)
+                )
+                api.user.grant_roles(user=user_obj, roles=['Member', ])
+            except:
+                print('error on user {}'.format(user))

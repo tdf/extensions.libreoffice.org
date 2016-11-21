@@ -80,4 +80,11 @@
       factory=".setuphandlers.HiddenProfiles"
       name="tdf.migration-hiddenprofiles" />
 
+  <browser:page
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      name="user_info_import"
+      class=".usermigration.ImportUserInformation"
+      permission="zope2.View"
+      />
+
 </configure>
