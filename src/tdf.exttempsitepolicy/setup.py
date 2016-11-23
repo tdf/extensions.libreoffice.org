@@ -49,8 +49,8 @@ setup(
         'tdf.extensionuploadcenter',
         'tdf.templateuploadcenter',
         'cioppino.twothumbs',
-#        'collective.ATClamAV',
-        'tdf.extensioncentertheme'
+        'tdf.extensioncentertheme',
+        'collective.registrationcaptcha[captchawidgets]'
     ],
     extras_require={
         'test': [
