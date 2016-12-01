@@ -6,8 +6,12 @@ from plone.app.testing import FunctionalTesting
 from plone.app.testing import IntegrationTesting
 from plone.app.testing import PloneSandboxLayer
 from plone.testing import z2
+from plone.app.testing import setRoles
+from plone.app.testing import TEST_USER_ID
+from plone.app.testing import helpers
 
 import tdf.exttempsitepolicy
+import collective.MockMailHost
 
 
 class TdfExttempsitepolicyLayer(PloneSandboxLayer):
@@ -16,9 +20,20 @@ class TdfExttempsitepolicyLayer(PloneSandboxLayer):
 
     def setUpZope(self, app, configurationContext):
         self.loadZCML(package=tdf.exttempsitepolicy)
+        self.loadZCML(package=collective.MockMailHost)
+        z2.installProduct(app, 'collective.MockMailHost')
+        z2.installProduct(app, 'tdf.extensionuploadcenter')
 
     def setUpPloneSite(self, portal):
         applyProfile(portal, 'tdf.exttempsitepolicy:default')
+        applyProfile(portal, 'tdf.extensionuploadcenter:default')
+        applyProfile(portal, 'collective.MockMailHost:default')
+        helpers.quickInstallProduct(portal, 'collective.MockMailHost')
+        setRoles(portal, TEST_USER_ID, ['Manager'])
+
+    def tearDownZope(self, app):
+        # Uninstall product
+        z2.uninstallProduct(app, 'collective.MockMailHost')
 
 
 TDF_EXTTEMPSITEPOLICY_FIXTURE = TdfExttempsitepolicyLayer()
