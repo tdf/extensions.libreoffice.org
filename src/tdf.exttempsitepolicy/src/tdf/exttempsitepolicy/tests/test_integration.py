@@ -50,7 +50,6 @@ class TestExtensionsValidators(unittest.TestCase):
             'tdf.extensionuploadcenter.euprelease',
             title='release'
         )
-
         project2 = api.content.create(
             center,
             'tdf.extensionuploadcenter.eupproject',
@@ -69,8 +68,9 @@ class TestExtensionsValidators(unittest.TestCase):
         self.assertTrue(result[0].release_number, u'1.0')
 
         # Trying to create other release with the same release number will trigger
+        # on creation
         validator = ValidateEUpReleaseUniqueness(
-            release,
+            project,
             self.request,
             None,
             IEUpRelease['releasenumber'],
@@ -79,20 +79,44 @@ class TestExtensionsValidators(unittest.TestCase):
         self.assertRaises(Invalid, validator.validate, u'1.0')
         self.assertIsNone(validator.validate(u'2.0'))
 
+        # Trying to create other release with the same release number will trigger
+        # on editing
+        validator = ValidateEUpReleaseUniqueness(
+            release,
+            self.request,
+            None,
+            IEUpRelease['releasenumber'],
+            None
+        )
+        self.assertIsNone(validator.validate(u'1.0'))
+        self.assertIsNone(validator.validate(u'2.0'))
+
         releaselink = api.content.create(
             project,
             'tdf.extensionuploadcenter.eupreleaselink',
             title='releaselink'
         )
 
+        # on creation
         validatorlink = ValidateEUpReleaseLinkUniqueness(
-            release,
+            project,
             self.request,
             None,
             IEUpReleaseLink['releasenumber'],
             None
         )
         self.assertRaises(Invalid, validatorlink.validate, u'1.0')
+        self.assertIsNone(validatorlink.validate(u'3.0'))
+
+        # on editing
+        validatorlink = ValidateEUpReleaseLinkUniqueness(
+            releaselink,
+            self.request,
+            None,
+            IEUpReleaseLink['releasenumber'],
+            None
+        )
+        self.assertIsNone(validatorlink.validate(u'2.0'))
         self.assertIsNone(validatorlink.validate(u'3.0'))
 
 
@@ -135,8 +159,9 @@ class TestTemplateValidators(unittest.TestCase):
         self.assertTrue(result[0].release_number, u'1.0')
 
         # Trying to create other release with the same release number will trigger
+        # on creation
         validator = ValidateTUpReleaseUniqueness(
-            release,
+            project,
             self.request,
             None,
             ITUpRelease['releasenumber'],
@@ -145,18 +170,42 @@ class TestTemplateValidators(unittest.TestCase):
         self.assertRaises(Invalid, validator.validate, u'1.0')
         self.assertIsNone(validator.validate(u'2.0'))
 
+        # Trying to create other release with the same release number will trigger
+        # on editing
+        validator = ValidateTUpReleaseUniqueness(
+            release,
+            self.request,
+            None,
+            IEUpRelease['releasenumber'],
+            None
+        )
+        self.assertIsNone(validator.validate(u'1.0'))
+        self.assertIsNone(validator.validate(u'2.0'))
+
         releaselink = api.content.create(
             project,
             'tdf.templateuploadcenter.tupreleaselink',
             title='releaselink'
         )
 
+        # on creation
         validatorlink = ValidateTUpReleaseLinkUniqueness(
-            release,
+            project,
             self.request,
             None,
-            ITUpReleaseLink['releasenumber'],
+            IEUpReleaseLink['releasenumber'],
             None
         )
         self.assertRaises(Invalid, validatorlink.validate, u'1.0')
+        self.assertIsNone(validatorlink.validate(u'3.0'))
+
+        # on editing
+        validatorlink = ValidateTUpReleaseLinkUniqueness(
+            releaselink,
+            self.request,
+            None,
+            IEUpReleaseLink['releasenumber'],
+            None
+        )
+        self.assertIsNone(validatorlink.validate(u'2.0'))
         self.assertIsNone(validatorlink.validate(u'3.0'))
