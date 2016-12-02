@@ -34,7 +34,7 @@ class TestExtensionsValidators(unittest.TestCase):
         mail_settings.smtp_host = u'localhost'
         mail_settings.email_from_address = 'whatever'
 
-    def test_releases(self):
+    def test_extension_releases(self):
         center = api.content.create(
             self.portal,
             'tdf.extensionuploadcenter.eupcenter',
@@ -49,6 +49,18 @@ class TestExtensionsValidators(unittest.TestCase):
             project,
             'tdf.extensionuploadcenter.euprelease',
             title='release'
+        )
+
+        project2 = api.content.create(
+            center,
+            'tdf.extensionuploadcenter.eupproject',
+            title='project2'
+        )
+        release2 = api.content.create(
+            project2,
+            'tdf.extensionuploadcenter.euprelease',
+            title='release2',
+            releasenumber=u'2.0'
         )
 
         # Test the index
@@ -100,7 +112,7 @@ class TestTemplateValidators(unittest.TestCase):
         mail_settings.smtp_host = u'localhost'
         mail_settings.email_from_address = 'whatever'
 
-    def test_releases(self):
+    def test_templates_releases(self):
         center = api.content.create(
             self.portal,
             'tdf.templateuploadcenter.tupcenter',
