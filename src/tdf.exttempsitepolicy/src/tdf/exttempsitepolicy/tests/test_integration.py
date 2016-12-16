@@ -8,12 +8,15 @@ from tdf.extensionuploadcenter.euprelease import ValidateEUpReleaseUniqueness
 from tdf.extensionuploadcenter.eupreleaselink import ValidateEUpReleaseLinkUniqueness
 from tdf.extensionuploadcenter.euprelease import IEUpRelease
 from tdf.extensionuploadcenter.eupreleaselink import IEUpReleaseLink
+from tdf.extensionuploadcenter.adapter import IReleasesCompatVersions
 from tdf.templateuploadcenter.tuprelease import ValidateTUpReleaseUniqueness
 from tdf.templateuploadcenter.tupreleaselink import ValidateTUpReleaseLinkUniqueness
 from tdf.templateuploadcenter.tuprelease import ITUpRelease
-from tdf.templateuploadcenter.tupreleaselink import ITUpReleaseLink
 from zope.component import getUtility
+from zope.event import notify
 from zope.interface import Invalid
+from zope.lifecycleevent import ObjectModifiedEvent
+from zope.lifecycleevent import ObjectRemovedEvent
 
 import unittest
 
@@ -209,3 +212,120 @@ class TestTemplateValidators(unittest.TestCase):
         )
         self.assertIsNone(validatorlink.validate(u'2.0'))
         self.assertIsNone(validatorlink.validate(u'3.0'))
+
+    def test_releases_compat_adapter(self):
+        center = api.content.create(
+            self.portal,
+            'tdf.extensionuploadcenter.eupcenter',
+            title='center'
+        )
+        project = api.content.create(
+            center,
+            'tdf.extensionuploadcenter.eupproject',
+            title='project'
+        )
+        release = api.content.create(
+            project,
+            'tdf.extensionuploadcenter.euprelease',
+            title='release'
+        )
+
+        self.assertEquals(IReleasesCompatVersions(project).get(), [])
+        list1 = ['1', '2']
+        IReleasesCompatVersions(project).update(list1)
+        self.assertEquals(IReleasesCompatVersions(project).get(), list1)
+        list2 = ['1', '2', '3']
+        IReleasesCompatVersions(project).update(list2)
+        self.assertEquals(len(IReleasesCompatVersions(project).get()), 3)
+
+    def test_releases_compat_add_event(self):
+        center = api.content.create(
+            self.portal,
+            'tdf.extensionuploadcenter.eupcenter',
+            title='center'
+        )
+        project = api.content.create(
+            center,
+            'tdf.extensionuploadcenter.eupproject',
+            title='project'
+        )
+        release = api.content.create(
+            project,
+            'tdf.extensionuploadcenter.euprelease',
+            title='release',
+            compatibility_choice=['LibreOffice 5.1', ]
+        )
+
+        self.assertEquals(IReleasesCompatVersions(project).get(), ['LibreOffice 5.1', ])
+
+    def test_releases_compat_modify_event(self):
+        center = api.content.create(
+            self.portal,
+            'tdf.extensionuploadcenter.eupcenter',
+            title='center'
+        )
+        project = api.content.create(
+            center,
+            'tdf.extensionuploadcenter.eupproject',
+            title='project'
+        )
+        release = api.content.create(
+            project,
+            'tdf.extensionuploadcenter.euprelease',
+            title='release',
+            compatibility_choice=['LibreOffice 5.1', 'LibreOffice 5.2', ]
+        )
+        release2 = api.content.create(
+            project,
+            'tdf.extensionuploadcenter.euprelease',
+            title='release2',
+            compatibility_choice=['LibreOffice 5.2', ]
+        )
+
+        # release.reindexObject(idxs=['getCompatibility'])
+        notify(ObjectModifiedEvent(release))
+        releases = IReleasesCompatVersions(project).get()
+        self.assertTrue('LibreOffice 5.1' in releases)
+        self.assertTrue('LibreOffice 5.2' in releases)
+
+        release.compatibility_choice = ['LibreOffice 5.2', ]
+        release.reindexObject(idxs=['getCompatibility'])
+        notify(ObjectModifiedEvent(release))
+        releases = IReleasesCompatVersions(project).get()
+        self.assertTrue('LibreOffice 5.1' not in releases)
+        self.assertTrue('LibreOffice 5.2' in releases)
+
+    def test_releases_compat_delete_event(self):
+        center = api.content.create(
+            self.portal,
+            'tdf.extensionuploadcenter.eupcenter',
+            title='center'
+        )
+        project = api.content.create(
+            center,
+            'tdf.extensionuploadcenter.eupproject',
+            title='project'
+        )
+        release = api.content.create(
+            project,
+            'tdf.extensionuploadcenter.euprelease',
+            title='release',
+            compatibility_choice=['LibreOffice 5.1', 'LibreOffice 5.2', ]
+        )
+        release2 = api.content.create(
+            project,
+            'tdf.extensionuploadcenter.euprelease',
+            title='release2',
+            compatibility_choice=['LibreOffice 5.2', ]
+        )
+
+        releases = IReleasesCompatVersions(project).get()
+        self.assertTrue('LibreOffice 5.1' in releases)
+        self.assertTrue('LibreOffice 5.2' in releases)
+
+        api.content.delete(release)
+
+        notify(ObjectRemovedEvent(release))
+        releases = IReleasesCompatVersions(project).get()
+        self.assertTrue('LibreOffice 5.1' not in releases)
+        self.assertTrue('LibreOffice 5.2' in releases)
