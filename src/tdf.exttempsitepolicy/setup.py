@@ -50,7 +50,8 @@ setup(
         'tdf.templateuploadcenter',
         'cioppino.twothumbs',
         'tdf.extensioncentertheme',
-        'collective.registrationcaptcha[captchawidgets]'
+        'collective.registrationcaptcha[captchawidgets]',
+        'collective.recaptchacontactform'
     ],
     extras_require={
         'test': [
