@@ -21,7 +21,7 @@
 
     <drop css:content="#portal-footer-signature" />
     <!-- Disable the pat-modal in contact-info -->
-    <drop attributes="class" content="a[@href='http://localhost:8080/Plone/contact-info']" />
+    <drop attributes="class" content="a[contains(@href, 'contact-info')]" />
 
   </rules>
 
