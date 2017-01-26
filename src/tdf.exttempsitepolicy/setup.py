@@ -51,7 +51,8 @@ setup(
         'cioppino.twothumbs',
         'tdf.extensioncentertheme',
         'collective.registrationcaptcha[captchawidgets]',
-        'collective.recaptchacontactform'
+        'collective.recaptchacontactform',
+        'collective.monkeypatcher'
     ],
     extras_require={
         'test': [
