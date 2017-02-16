@@ -1,0 +1,81 @@
+---
+- hosts: <server_name>
+  remote_user: <remote_user>
+
+  tasks:
+    # Update (Ubuntu)
+    # - apt: update_cache=yes
+    #   become: yes
+    # - name: Install dependencies
+    #   become: yes
+    #   apt: name={{ item }} state=installed
+    #   with_items:
+    #     - curl
+    #     - git
+    #     - tar
+    #     - unzip
+    #     - build-essential
+    #     - python-passlib  # for htpasswd
+    #     - libxslt1-dev  # For Plone
+    #     - libjpeg62-dev
+    #     - python-gdbm
+    #     - python-dev
+    #     - python-tk
+    #     - python-virtualenv
+    #     - python-docutils
+
+    - name: Make user owner of the /srv directory
+      file: path=/srv owner=plone group=nogroup recurse=yes state=directory
+      become: yes
+
+    - name: extensions.libreoffice.org git checkout
+      git: repo=https://github.com/tdf/extensions.libreoffice.org.git
+           dest=/srv/extensions.libreoffice.org
+           accept_hostkey=yes
+           update=yes
+           force=yes
+      become: yes
+      become_user: plone
+
+    - shell: if [ -d 'bin' ]; then ls bin |grep python2.7; fi chdir=/srv/extensions.libreoffice.org/
+      register: is_virtualenv_built
+      ignore_errors: True
+
+    - name: extensions.libreoffice.org local virtualenv
+      shell: virtualenv --clear . chdir=/srv/extensions.libreoffice.org/
+      when: not is_virtualenv_built["stdout"]
+      become: yes
+      become_user: plone
+
+    - name: extensions.libreoffice.org install setuptools and zc.buildout
+      shell: bin/python bootstrap-buildout.py chdir=/srv/extensions.libreoffice.org
+      become: yes
+      become_user: plone
+
+    - name: extensions.libreoffice.org buildout
+      shell: bin/buildout -c live.cfg chdir=/srv/extensions.libreoffice.org
+      become: yes
+      become_user: plone
+      notify: Restart extensions.libreoffice.org server
+
+    - name: Install init.d script
+      template: src=etc/service/supervisor dest=/etc/init.d/supervisor owner=root group=root mode=0755
+      notify: Restart extensions.libreoffice.org server
+      become: yes
+
+    - name: Enable and start supervisor service
+      service: name=supervisor enabled=yes
+      notify: Restart extensions.libreoffice.org server
+      become: yes
+
+    - name: Set cron job for backup
+      cron:
+        name: "extensions.libreoffice.org Plone instance backup job"
+        job: "sudo -u plone /srv/extensions.libreoffice.org/bin/backup"
+        special_time: daily
+        state: present
+      become: yes
+
+  handlers:
+    - name: Restart extensions.libreoffice.org server
+      shell: /srv/extensions.libreoffice.org/bin/supervisorctl restart instance1 && sleep 60 && /srv/extensions.libreoffice.org/bin/supervisorctl restart instance2
