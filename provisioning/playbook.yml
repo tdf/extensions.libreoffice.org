@@ -76,6 +76,11 @@
         state: present
       become: yes
 
+    - name: Create a directory for the mail server queue
+      file: path=/srv/extensions.libreoffice.org/mailtemp owner=plone group=nogroup recurse=yes state=directory
+      become: yes
+      tags: mailqueue
+
   handlers:
     - name: Restart extensions.libreoffice.org server
       shell: /srv/extensions.libreoffice.org/bin/supervisorctl restart instance1 && sleep 60 && /srv/extensions.libreoffice.org/bin/supervisorctl restart instance2
