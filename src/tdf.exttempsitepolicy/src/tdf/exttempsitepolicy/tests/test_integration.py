@@ -10,8 +10,12 @@ from tdf.extensionuploadcenter.euprelease import IEUpRelease
 from tdf.extensionuploadcenter.eupreleaselink import IEUpReleaseLink
 from tdf.extensionuploadcenter.adapter import IReleasesCompatVersions
 from tdf.templateuploadcenter.tuprelease import ValidateTUpReleaseUniqueness
+from tdf.templateuploadcenter.tupproject import ValidateTUpProjectUniqueness
+from tdf.templateuploadcenter.tupproject import ITUpProject
 from tdf.templateuploadcenter.tupreleaselink import ValidateTUpReleaseLinkUniqueness
 from tdf.templateuploadcenter.tuprelease import ITUpRelease
+from tdf.extensionuploadcenter.eupproject import IEUpProject
+from tdf.extensionuploadcenter.eupproject import ValidateEUpProjectUniqueness
 from zope.component import getUtility
 from zope.event import notify
 from zope.interface import Invalid
@@ -329,3 +333,93 @@ class TestTemplateValidators(unittest.TestCase):
         releases = IReleasesCompatVersions(project).get()
         self.assertTrue('LibreOffice 5.1' not in releases)
         self.assertTrue('LibreOffice 5.2' in releases)
+
+    def test_ext_uniqueness_of_the_title_and_special_chars(self):
+        center = api.content.create(
+            self.portal,
+            'tdf.extensionuploadcenter.eupcenter',
+            title='center'
+        )
+        project = api.content.create(
+            center,
+            'tdf.extensionuploadcenter.eupproject',
+            title='My project'
+        )
+        project2 = api.content.create(
+            center,
+            'tdf.extensionuploadcenter.eupproject',
+            title='My project'
+        )
+        project3 = api.content.create(
+            center,
+            'tdf.extensionuploadcenter.eupproject',
+            title='My project (with)'
+        )
+        project4 = api.content.create(
+            center,
+            'tdf.extensionuploadcenter.eupproject',
+            title='My project (with)'
+        )
+        validator = ValidateEUpProjectUniqueness(
+            project2,
+            self.request,
+            None,
+            IEUpProject['title'],
+            None
+        )
+        self.assertRaises(Invalid, validator.validate, u'My project')
+        self.assertIsNone(validator.validate(u'My other project'))
+
+        validator = ValidateEUpProjectUniqueness(
+            project4,
+            self.request,
+            None,
+            IEUpProject['title'],
+            None
+        )
+        self.assertRaises(Invalid, validator.validate, u'My project (with)')
+
+    def test_temp_uniqueness_of_the_title_and_special_chars(self):
+        center = api.content.create(
+            self.portal,
+            'tdf.templateuploadcenter.tupcenter',
+            title='center'
+        )
+        project = api.content.create(
+            center,
+            'tdf.templateuploadcenter.tupproject',
+            title='My project'
+        )
+        project2 = api.content.create(
+            center,
+            'tdf.templateuploadcenter.tupproject',
+            title='My project'
+        )
+        project3 = api.content.create(
+            center,
+            'tdf.templateuploadcenter.tupproject',
+            title='My project (with)'
+        )
+        project4 = api.content.create(
+            center,
+            'tdf.templateuploadcenter.tupproject',
+            title='My project (with)'
+        )
+        validator = ValidateTUpProjectUniqueness(
+            project2,
+            self.request,
+            None,
+            ITUpProject['title'],
+            None
+        )
+        self.assertRaises(Invalid, validator.validate, u'My project')
+        self.assertIsNone(validator.validate(u'My other project'))
+
+        validator = ValidateTUpProjectUniqueness(
+            project4,
+            self.request,
+            None,
+            ITUpProject['title'],
+            None
+        )
+        self.assertRaises(Invalid, validator.validate, u'My project (with)')
