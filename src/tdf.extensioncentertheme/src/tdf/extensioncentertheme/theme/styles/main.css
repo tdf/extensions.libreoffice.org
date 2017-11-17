@@ -262,4 +262,5 @@ div.project-thumb-thumbzoom img {
   padding: 0; }
 
 #portal-anontools li a {
-  color: #FFF; }
+  color: #FFF;
+  padding-left: 0.7em; }
