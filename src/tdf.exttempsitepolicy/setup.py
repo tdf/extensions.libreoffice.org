@@ -52,7 +52,8 @@ setup(
         'tdf.extensioncentertheme',
         'collective.registrationcaptcha[captchawidgets]',
         'collective.recaptchacontactform',
-        'collective.monkeypatcher'
+        'collective.monkeypatcher',
+        'kitconcept.dsgvo'
     ],
     extras_require={
         'test': [
