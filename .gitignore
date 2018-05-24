@@ -21,3 +21,14 @@ log.html
 report.html
 etc/nginx
 .vagrant
+*.retry
+
+lib
+include
+.Python
+pip-selfcheck.json
+
+src
+!src/tdf.exttempsitepolicy
+!src/tdf.extensioncentertheme
+!src/tdf.migration
