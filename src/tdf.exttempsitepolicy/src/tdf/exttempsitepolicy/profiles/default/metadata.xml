@@ -8,5 +8,6 @@
     <dependency>profile-tdf.extensioncentertheme:default</dependency>
     <dependency>profile-collective.registrationcaptcha:default</dependency>
     <dependency>profile-plone.formwidget.recaptcha:default</dependency>
+    <dependency>profile-kitconcept.dsgvo:default</dependency>
   </dependencies>
 </metadata>
