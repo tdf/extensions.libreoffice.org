@@ -22,6 +22,7 @@ report.html
 etc/nginx
 .vagrant
 *.retry
+.directory
 
 lib
 include
