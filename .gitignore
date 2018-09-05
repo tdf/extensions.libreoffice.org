@@ -25,6 +25,7 @@ etc/nginx
 .directory
 
 lib
+lib64
 include
 .Python
 pip-selfcheck.json
