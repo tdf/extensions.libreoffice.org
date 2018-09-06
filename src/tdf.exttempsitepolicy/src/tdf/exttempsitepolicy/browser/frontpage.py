@@ -2,7 +2,7 @@
 from plone import api
 from Products.Five.browser import BrowserView
 from tdf.exttempsitepolicy import _
-from Acquisition import aq_inner
+from Acquisition import aq_inner, aq_parent
 
 
 
@@ -108,3 +108,18 @@ class frontpageView(BrowserView):
 
         results = self.catalog(**contentFilter)
         return results
+
+
+    def get_latest_ext_releases(self):
+        published_projects = api.content.find(portal_type='tdf.extensionuploadcenter.eupproject',
+                                              review_state='published')
+
+        release_uids = []
+        for brain in published_projects:
+            project = brain.getObject()
+            release_uids += [brain.UID for brain in api.content.find(context=project,
+                                                                     portal_type=('tdf.extensionuploadcenter.euprelease',
+                                                                                  'tdf.extensionuploadcenter.eupreleaselink' ))]
+        releases = api.content.find(UID=release_uids, review_state='final',)
+
+        return(releases)
