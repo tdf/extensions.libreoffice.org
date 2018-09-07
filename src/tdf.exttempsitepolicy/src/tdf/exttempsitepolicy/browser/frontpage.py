@@ -97,29 +97,18 @@ class frontpageView(BrowserView):
         return results
 
 
-    def get_latest_extension_releases(self):
-        self.catalog =api.portal.get_tool(name='portal_catalog')
-        sort_on = 'created'
-        contentFilter = {'sort_on' : sort_on,
-                         'sort_order' : 'reverse',
-                         'review_state' : 'final',
-                         'portal_type' : ('tdf.extensionuploadcenter.euprelease', 'tdf.extensionuploadcenter.eupreleaselink' ),
-                         }
-
-        results = self.catalog(**contentFilter)
-        return results
-
-
     def get_latest_ext_releases(self):
         published_projects = api.content.find(portal_type='tdf.extensionuploadcenter.eupproject',
                                               review_state='published')
-
         release_uids = []
         for brain in published_projects:
             project = brain.getObject()
             release_uids += [brain.UID for brain in api.content.find(context=project,
                                                                      portal_type=('tdf.extensionuploadcenter.euprelease',
                                                                                   'tdf.extensionuploadcenter.eupreleaselink' ))]
-        releases = api.content.find(UID=release_uids, review_state='final',)
+        releases = api.content.find(UID=release_uids,
+                                    review_state='final',
+                                    sort_on='created',
+                                    sort_order='reverse')
 
         return(releases)

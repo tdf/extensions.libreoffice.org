@@ -91,7 +91,7 @@
     <div id="latest_extension_releases">
         <h3 i18n:translate="title_latest_extension_releases">Most Recent Extension Releases</h3>
         <div class=""
-                            tal:define="results python:view.get_latest_extension_releases();
+                            tal:define="results python:view.get_latest_ext_releases();
                                         Batch python:modules['Products.CMFPlone'].Batch;
 				                        b_size python:5;b_start python:0;b_start request/b_start | b_start;
 				                        ">
@@ -126,6 +126,7 @@
 
 
     </div>
+
 
    <div id="template_projects">
     <h2 i18n:translate="title_templates">Templates</h2>
