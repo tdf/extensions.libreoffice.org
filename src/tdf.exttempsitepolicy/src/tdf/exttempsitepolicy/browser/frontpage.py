@@ -61,6 +61,24 @@ class frontpageView(BrowserView):
         return results
 
 
+    def get_latest_temp_releases(self):
+        published_projects = api.content.find(portal_type='tdf.templateuploadcenter.tupproject',
+                                              review_state='published')
+        release_uids = []
+        for brain in published_projects:
+            project = brain.getObject()
+            release_uids += [brain.UID for brain in api.content.find(context=project,
+                                                                     portal_type=('tdf.templateuploadcenter.tuprelease',
+                                                                                  'tdf.templateuploadcenter.tupreleaselink' ))]
+        releases = api.content.find(UID=release_uids,
+                                    review_state='final',
+                                    sort_on='created',
+                                    sort_order='reverse')
+
+        return(releases)
+
+
+
 
 
     def eupproject_count(self):
