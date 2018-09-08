@@ -12,9 +12,9 @@
              tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
                          cropText nocall:context/@@plone/cropText;">
 
-    <h1 i18n:translate="title_libreoffice_extensions_and_templates">LibreOffice Extensions and Templates</h1>
+    <h1 i18n:translate="">LibreOffice Extensions and Templates</h1>
 
-    <div class="documentDescription description" i18n:translate="description_extensions_templates">
+    <div class="documentDescription description" i18n:translate="">
         LibreOffice offers a wide variety of features, and when you look for additional functionality,
         there may well be extensions and templates that add that! This site offers a wide range of
         extensions and templates to satisfy your needs. What's more, people, maybe you, can develop
@@ -22,8 +22,8 @@
     </div>
 
  <div id="extension_projects">
-    <h2 i18n:translate="title_extensions">Extensions</h2>
-    <p i18n:translate="description_extensions">LibreOffice Extensions are tools that can be added or removed independently from your
+    <h2 i18n:translate="">Extensions</h2>
+    <p i18n:translate="">LibreOffice Extensions are tools that can be added or removed independently from your
         installation of the main program. Extensions may add new functionality to your copy
         of LibreOffice, or may make existing functionality easier to use.
     </p>
