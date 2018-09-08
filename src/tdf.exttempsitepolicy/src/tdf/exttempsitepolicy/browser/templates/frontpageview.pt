@@ -204,7 +204,7 @@
         <div id="latest_template_releases">
         <h3 i18n:translate="title_latest_template_releases">Most Recent Template Releases</h3>
         <div class=""
-                            tal:define="results python:view.get_latest_template_releases();
+                            tal:define="results python:view.get_latest_temp_releases();
                                         Batch python:modules['Products.CMFPlone'].Batch;
 				                        b_size python:5;b_start python:0;b_start request/b_start | b_start;
 				                        ">
