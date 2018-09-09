@@ -28,10 +28,10 @@
         of LibreOffice, or may make existing functionality easier to use.
     </p>
         <p class="current-extensionprojects" i18n:translate="">Currently there are
-                            <span tal:content="view/eupproject_count" i18n:name="eup_project_count" /> LibreOffice extension project(s) with
+                            <span tal:content="view/eupproject_count" i18n:name="" /> LibreOffice extension project(s) with
                             <span tal:content="view/euprelease_count" /> release(s) available.
                     </p>
-        <h3 i18n:translate="title_most_recent_extension_projects">Most Recent Extension Projects</h3>
+        <h3 i18n:translate="">Most Recent Extension Projects</h3>
         <div class=""
                             tal:define="results python:view.get_newest_extensionprojects();
                                         Batch python:modules['Products.CMFPlone'].Batch;
@@ -89,7 +89,7 @@
 </div>
 
     <div id="latest_extension_releases">
-        <h3 i18n:translate="title_latest_extension_releases">Most Recent Extension Releases</h3>
+        <h3 i18n:translate="">Most Recent Extension Releases</h3>
         <div class=""
                             tal:define="results python:view.get_latest_ext_releases();
                                         Batch python:modules['Products.CMFPlone'].Batch;
@@ -113,7 +113,7 @@
                                         </h4>
                                         <p><b i18n:translate="release_summary">Release Summary</b><br />
                                         <span tal:content="structure release/description">Description</span></p>
-                                        <b i18n:translate="compatiblity" >Compatibility</b>
+                                        <b i18n:translate="" >Compatibility</b>
                                         <p> <tal:loop repeat="compatibility_choice release/compatibility_choice">
                                                  <span tal:content="compatibility_choice"  />,
                                             </tal:loop>
@@ -129,8 +129,8 @@
 
 
    <div id="template_projects">
-    <h2 i18n:translate="title_templates">Templates</h2>
-    <p i18n:translate="description_templates">LibreOffice Templates offer you a way to avoid duplicating repetitive actions when creating new
+    <h2 i18n:translate="">Templates</h2>
+    <p i18n:translate="">LibreOffice Templates offer you a way to avoid duplicating repetitive actions when creating new
         text documents, spreadsheets, or presentations. They also offer a way to maintain consistency
         of document layout and standard content, and may, for example, be used to maintain consistent
         branding elements when used in a work place.
@@ -139,10 +139,10 @@
 
 
         <p class="current-templateprojects" i18n:translate="">Currently there are
-                            <span tal:content="view/tupproject_count" i18n:name="tup_project_count" /> LibreOffice template project(s) with
+                            <span tal:content="view/tupproject_count" i18n:name="" /> LibreOffice template project(s) with
                             <span tal:content="view/tuprelease_count" /> release(s) available.
                     </p>
-        <h3 i18n:translate="title_most_recent_template_projects">Most Recent Template Projects</h3>
+        <h3 i18n:translate="">Most Recent Template Projects</h3>
         <div class=""
                             tal:define="results python:view.get_newest_templateprojects();
                                         Batch python:modules['Products.CMFPlone'].Batch;
@@ -202,7 +202,7 @@
        </div>
 
         <div id="latest_template_releases">
-        <h3 i18n:translate="title_latest_template_releases">Most Recent Template Releases</h3>
+        <h3 i18n:translate="">Most Recent Template Releases</h3>
         <div class=""
                             tal:define="results python:view.get_latest_temp_releases();
                                         Batch python:modules['Products.CMFPlone'].Batch;
@@ -223,9 +223,9 @@
                                             <a href="" tal:attributes="href releaseURL;" 	tal:content="release/pretty_title_or_id">
                                                 <tal:comment replace="nothing">Template Release One</tal:comment></a>
                                         </h4>
-                                        <p><b i18n:translate="release_summary">Release Summary</b><br />
+                                        <p><b i18n:translate="">Release Summary</b><br />
                                         <span tal:content="structure release/description">Description</span></p>
-                                        <b i18n:translate="compatiblity" >Compatibility</b>
+                                        <b i18n:translate="" >Compatibility</b>
                                         <p> <tal:loop repeat="compatibility_choice release/compatibility_choice">
                                                  <span tal:content="compatibility_choice"  />,
                                             </tal:loop>
@@ -240,7 +240,7 @@
     </div>
 
 <h2 i18n:translate="title_licenses">Licenses</h2>
-        <p i18n:translate="description_publish_free_software_license">LibreOffice remains committed to providing users with quality software authored under
+        <p i18n:translate="">LibreOffice remains committed to providing users with quality software authored under
         <a class="external-link" href="http://www.gnu.org/philosophy/free-sw.html">free software licenses</a>,
         and, as such, our catalogue of extensions and templates are published under
         <a class="external-link" href="http://www.gnu.org/philosophy/free-sw.html">free software licenses</a>.
