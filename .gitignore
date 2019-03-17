@@ -6,6 +6,7 @@
 .project
 .pydevproject
 .settings/
+.idea/
 bin/
 buildout-cache/
 develop-eggs/
@@ -13,6 +14,7 @@ parts/
 !src/tdf
 var/
 htmlcov/
+eggs/
 .coverage
 *.log
 output.xml
