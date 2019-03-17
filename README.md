@@ -4,6 +4,8 @@ This is the repository used to create and configure the new and improved website
 
 The purpose of the new site is to provide and exchange extensions and templates for LibreOffice under free software licenses in a more easy way than the current websites.
 
+Important Note: Because there was a decision to change the environment for the LibreOffice extensions and templates website, the development will not take further steps inside this repository. But the development will get further in a fork of this repository with the implemenation of improved Plone add-ons and a migration to Python 3.
+
 # Development notes
 
 ## Theme development
