@@ -19,7 +19,7 @@ class frontpageView(BrowserView):
         context = aq_inner(self.context)
         catalog = api.portal.get_tool(name='portal_catalog')
 
-        return len(catalog(portal_type='tdf.templateuploadcenter.tupproject'))
+        return len(catalog(portal_type=('tdf.templateuploadcenter.tupproject', 'tdf.templateuploadcenter.tupsmallproject')))
 
 
 
@@ -40,7 +40,8 @@ class frontpageView(BrowserView):
                           'sort_on' : sort_on,
                           'sort_order' : 'reverse',
                           'review_state': 'published',
-                          'portal_type':'tdf.templateuploadcenter.tupproject'}
+                          'portal_type':('tdf.templateuploadcenter.tupproject',
+                                         'tdf.templateuploadcenter.tupsmallproject')}
 
         results = self.catalog(**contentFilter)
 
@@ -54,7 +55,8 @@ class frontpageView(BrowserView):
         contentFilter = {'sort_on' : sort_on,
                          'sort_order' : 'reverse',
                          'review_state' : 'final',
-                         'portal_type' : ('tdf.templateuploadcenter.tuprelease', 'tdf.templateuploadcenter.tupreleaselink' ),
+                         'portal_type' : ('tdf.templateuploadcenter.tuprelease',
+                                          'tdf.templateuploadcenter.tupreleaselink' ),
                          }
 
         results = self.catalog(**contentFilter)
@@ -87,7 +89,8 @@ class frontpageView(BrowserView):
         context = aq_inner(self.context)
         catalog = api.portal.get_tool(name='portal_catalog')
 
-        return len(catalog(portal_type='tdf.extensionuploadcenter.eupproject'))
+        return len(catalog(portal_type=('tdf.extensionuploadcenter.eupproject',
+                                        'tef.extensionuploadcenter.eupsmallproject')))
 
 
 
@@ -108,7 +111,8 @@ class frontpageView(BrowserView):
                           'sort_on' : sort_on,
                           'sort_order' : 'reverse',
                           'review_state': 'published',
-                          'portal_type':'tdf.extensionuploadcenter.eupproject'}
+                          'portal_type':('tdf.extensionuploadcenter.eupproject',
+                                         'tdf.extensionuploadcenter.eupsmallproject')}
 
         results = self.catalog(**contentFilter)
 
