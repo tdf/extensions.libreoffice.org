@@ -2,7 +2,6 @@
 from plone import api
 from Products.Five.browser import BrowserView
 from tdf.exttempsitepolicy import _
-from Acquisition import aq_inner, aq_parent
 
 
 class frontpageView(BrowserView):
@@ -13,7 +12,6 @@ class frontpageView(BrowserView):
     def tupproject_count(self):
         """Return number of projects
         """
-        context = aq_inner(self.context)
         catalog = api.portal.get_tool(name='portal_catalog')
 
         return len(catalog(portal_type=('tdf.templateuploadcenter.tupproject',
@@ -22,7 +20,6 @@ class frontpageView(BrowserView):
     def tuprelease_count(self):
         """Return number of downloadable files
         """
-        context = aq_inner(self.context)
         catalog = api.portal.get_tool(name='portal_catalog')
 
         return len(catalog(portal_type='tdf.templateuploadcenter.tuprelease'))
@@ -59,9 +56,10 @@ class frontpageView(BrowserView):
         release_uids = []
         for brain in published_projects:
             project = brain.getObject()
-            release_uids += [brain.UID for brain in api.content.find(context=project,
-                                                                     portal_type=('tdf.templateuploadcenter.tuprelease',
-                                                                                  'tdf.templateuploadcenter.tupreleaselink'))]
+            release_uids += \
+                [brain.UID for brain in api.content.find(context=project,
+                                                         portal_type=('tdf.templateuploadcenter.tuprelease',
+                                                                      'tdf.templateuploadcenter.tupreleaselink'))]
         releases = api.content.find(UID=release_uids,
                                     review_state='final',
                                     sort_on='created',
@@ -72,16 +70,14 @@ class frontpageView(BrowserView):
     def eupproject_count(self):
         """Return number of projects
         """
-        context = aq_inner(self.context)
         catalog = api.portal.get_tool(name='portal_catalog')
 
         return len(catalog(portal_type=('tdf.extensionuploadcenter.eupproject',
-                                        'tef.extensionuploadcenter.eupsmallproject')))
+                                        'tdf.extensionuploadcenter.eupsmallproject')))
 
     def euprelease_count(self):
         """Return number of downloadable files
         """
-        context = aq_inner(self.context)
         catalog = api.portal.get_tool(name='portal_catalog')
 
         return len(catalog(portal_type='tdf.extensionuploadcenter.euprelease'))
