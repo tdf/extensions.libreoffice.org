@@ -107,13 +107,14 @@ class frontpageView(BrowserView):
         release_uids = []
         for brain in published_projects:
             project = brain.getObject()
-            release_uids +=\
+            release_uids += \
                 [brain.UID for brain in
-                 api.content.find(context=project,
-                                  portal_type=(
-                                      'tdf.extensionuploadcenter.euprelease',
-                                      'tdf.extensionuploadcenter.eupreleaselink'
-                                  ))]
+                 api.content.find(
+                     context=project,
+                     portal_type=(
+                         'tdf.extensionuploadcenter.euprelease',
+                         'tdf.extensionuploadcenter.eupreleaselink'
+                     ))]
         releases = api.content.find(UID=release_uids,
                                     review_state='final',
                                     sort_on='created',
