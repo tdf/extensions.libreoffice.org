@@ -4,7 +4,6 @@ from Products.Five.browser import BrowserView
 
 
 class frontpageView(BrowserView):
-
     """ The view of the LibreOffice extensions and templates frontpage
     """
 
@@ -13,8 +12,9 @@ class frontpageView(BrowserView):
         """
         catalog = api.portal.get_tool(name='portal_catalog')
 
-        return len(catalog(portal_type=('tdf.templateuploadcenter.tupproject',
-                                        'tdf.templateuploadcenter.tupsmallproject')))
+        return len(catalog(
+            portal_type=('tdf.templateuploadcenter.tupproject',
+                         'tdf.templateuploadcenter.tupsmallproject')))
 
     def tuprelease_count(self):
         """Return number of downloadable files
@@ -27,11 +27,11 @@ class frontpageView(BrowserView):
         self.catalog = api.portal.get_tool(name='portal_catalog')
         sort_on = 'created'
         contentFilter = {
-                          'sort_on': sort_on,
-                          'sort_order': 'reverse',
-                          'review_state': 'published',
-                          'portal_type': ('tdf.templateuploadcenter.tupproject',
-                                          'tdf.templateuploadcenter.tupsmallproject')}
+            'sort_on': sort_on,
+            'sort_order': 'reverse',
+            'review_state': 'published',
+            'portal_type': ('tdf.templateuploadcenter.tupproject',
+                            'tdf.templateuploadcenter.tupsmallproject')}
 
         results = self.catalog(**contentFilter)
 
@@ -43,36 +43,41 @@ class frontpageView(BrowserView):
         contentFilter = {'sort_on': sort_on,
                          'sort_order': 'reverse',
                          'review_state': 'final',
-                         'portal_type': ('tdf.templateuploadcenter.tuprelease',
-                                         'tdf.templateuploadcenter.tupreleaselink'),
+                         'portal_type': (
+                             'tdf.templateuploadcenter.tuprelease',
+                             'tdf.templateuploadcenter.tupreleaselink'),
                          }
         results = self.catalog(**contentFilter)
         return results
 
     def get_latest_temp_releases(self):
-        published_projects = api.content.find(portal_type='tdf.templateuploadcenter.tupproject',
-                                              review_state='published')
+        published_projects = api.content.find(
+            portal_type='tdf.templateuploadcenter.tupproject',
+            review_state='published')
         release_uids = []
         for brain in published_projects:
             project = brain.getObject()
             release_uids += \
-                [brain.UID for brain in api.content.find(context=project,
-                                                         portal_type=('tdf.templateuploadcenter.tuprelease',
-                                                                      'tdf.templateuploadcenter.tupreleaselink'))]
+                [brain.UID for brain in
+                 api.content.find(
+                     context=project,
+                     portal_type=('tdf.templateuploadcenter.tuprelease',
+                                  'tdf.templateuploadcenter.tupreleaselink'))]
         releases = api.content.find(UID=release_uids,
                                     review_state='final',
                                     sort_on='created',
                                     sort_order='reverse')
 
-        return(releases)
+        return (releases)
 
     def eupproject_count(self):
         """Return number of projects
         """
         catalog = api.portal.get_tool(name='portal_catalog')
 
-        return len(catalog(portal_type=('tdf.extensionuploadcenter.eupproject',
-                                        'tdf.extensionuploadcenter.eupsmallproject')))
+        return len(catalog(
+            portal_type=('tdf.extensionuploadcenter.eupproject',
+                         'tdf.extensionuploadcenter.eupsmallproject')))
 
     def euprelease_count(self):
         """Return number of downloadable files
@@ -85,28 +90,33 @@ class frontpageView(BrowserView):
         self.catalog = api.portal.get_tool(name='portal_catalog')
         sort_on = 'created'
         contentFilter = {
-                          'sort_on': sort_on,
-                          'sort_order': 'reverse',
-                          'review_state': 'published',
-                          'portal_type': ('tdf.extensionuploadcenter.eupproject',
-                                          'tdf.extensionuploadcenter.eupsmallproject')}
+            'sort_on': sort_on,
+            'sort_order': 'reverse',
+            'review_state': 'published',
+            'portal_type': ('tdf.extensionuploadcenter.eupproject',
+                            'tdf.extensionuploadcenter.eupsmallproject')}
 
         results = self.catalog(**contentFilter)
 
         return results
 
     def get_latest_ext_releases(self):
-        published_projects = api.content.find(portal_type='tdf.extensionuploadcenter.eupproject',
-                                              review_state='published')
+        published_projects = api.content.find(
+            portal_type='tdf.extensionuploadcenter.eupproject',
+            review_state='published')
         release_uids = []
         for brain in published_projects:
             project = brain.getObject()
-            release_uids += [brain.UID for brain in api.content.find(context=project,
-                                                                     portal_type=('tdf.extensionuploadcenter.euprelease',
-                                                                                  'tdf.extensionuploadcenter.eupreleaselink'))]
+            release_uids +=\
+                [brain.UID for brain in
+                 api.content.find(context=project,
+                                  portal_type=(
+                                      'tdf.extensionuploadcenter.euprelease',
+                                      'tdf.extensionuploadcenter.eupreleaselink'
+                                  ))]
         releases = api.content.find(UID=release_uids,
                                     review_state='final',
                                     sort_on='created',
                                     sort_order='reverse')
 
-        return(releases)
+        return (releases)
