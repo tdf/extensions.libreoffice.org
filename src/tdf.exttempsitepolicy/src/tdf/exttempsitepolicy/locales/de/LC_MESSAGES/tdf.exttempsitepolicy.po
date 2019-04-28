@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: tdf.exttempsitepolicy\n"
-"POT-Creation-Date: 2018-09-09 11:17+0000\n"
+"POT-Creation-Date: 2019-04-28 08:52+0000\n"
 "PO-Revision-Date: 2018-09-09 21:08+0200\n"
 "Last-Translator: Andreas Mantke <maand@gmx.de>\n"
 "Language-Team: LANGUAGE <maand@gmx.de>\n"
@@ -17,96 +17,96 @@ msgstr ""
 "Language: de\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#: browser/templates/frontpageview.pt:116
+#: ./browser/templates/frontpageview.pt:116
 msgid "Compatibility"
 msgstr "Kompatibilität"
 
-#: browser/templates/frontpageview.pt:32
+#: ./browser/templates/frontpageview.pt:32
 msgid "Currently there are <span>${DYNAMIC_CONTENT}</span> LibreOffice extension project(s) with <span>${DYNAMIC_CONTENT}</span> release(s) available."
 msgstr "Aktuell sind <span>${DYNAMIC_CONTENT}</span> LibreOffice extension project(s) mit <span>${DYNAMIC_CONTENT}</span> Release(s) verfügbar."
 
-#: browser/templates/frontpageview.pt:143
+#: ./browser/templates/frontpageview.pt:143
 msgid "Currently there are <span>${DYNAMIC_CONTENT}</span> LibreOffice template project(s) with <span>${DYNAMIC_CONTENT}</span> release(s) available."
 msgstr "Aktuell sind <span>${DYNAMIC_CONTENT}</span> LibreOffice Vorlagen (Template) Projekte mit <span>${DYNAMIC_CONTENT}</span> Release(s) verfügbar."
 
-#: browser/templates/frontpageview.pt:25
+#: ./browser/templates/frontpageview.pt:25
 msgid "Extensions"
 msgstr "Extensions"
 
-#: configure.zcml:22
+#: ./configure.zcml:22
 msgid "Installs the tdf.exttempsitepolicy add-on."
 msgstr "Installiert das tdf.exttempsitepolicy Add-On."
 
-#: browser/templates/frontpageview.pt:15
+#: ./browser/templates/frontpageview.pt:15
 msgid "LibreOffice Extensions and Templates"
 msgstr "LibreOffice Extensions und Vorlagen"
 
-#: browser/templates/frontpageview.pt:26
+#: ./browser/templates/frontpageview.pt:26
 msgid "LibreOffice Extensions are tools that can be added or removed independently from your installation of the main program. Extensions may add new functionality to your copy of LibreOffice, or may make existing functionality easier to use."
 msgstr "LibreOffice Extensions sind Hilfsmittel, die unabhängig von Ihrer Installation des Hauptprogramms hinzugefügt oder entfernt werden können. Extensions fügen eventuell  neue Funktionen Ihrer Kopie von LibreOffice hinzu oder machen möglicherweise einfacher bereits existierende Funktionalität zu verwenden."
 
-#: browser/templates/frontpageview.pt:133
+#: ./browser/templates/frontpageview.pt:133
 msgid "LibreOffice Templates offer you a way to avoid duplicating repetitive actions when creating new text documents, spreadsheets, or presentations. They also offer a way to maintain consistency of document layout and standard content, and may, for example, be used to maintain consistent branding elements when used in a work place."
 msgstr "LibreOffice Vorlagen (Templates) stellen einen Weg bereit,  sich wiederholende Arbeiten zu vermeiden, wenn Sie neue Textdokumente, Tabellendokumente oder Präsentationen erstellen. Sie stellen zudem einen Weg bereit, um Konsistenz von Dokumentenlayout und Standardinhalten sicherzustellen, und können beispielsweise benutzt werden, um die Konsistenz der Markenbildung zu pflegen, wenn sie am Arbeitsplatz verwendet werden."
 
-#: browser/templates/frontpageview.pt:17
+#: ./browser/templates/frontpageview.pt:17
 msgid "LibreOffice offers a wide variety of features, and when you look for additional functionality, there may well be extensions and templates that add that! This site offers a wide range of extensions and templates to satisfy your needs. What's more, people, maybe you, can develop more extensions or templates and offer them for the collecting on this site."
 msgstr "LibreOffice stellt eine große Vielfalt an Funktionen bereit. Und wenn Sie nach ergänzender Funktionalität suchen, gibt es dafür eventuell Extensions und Vorlagen, die diese bereit stellen! Diese Seite bietet eine große Auswahl an Extensions und Vorlagen an, um Ihre Bedürfnisse zu befriedigen. Aber was noch wichtiger ist, Leute, möglicherweise Sie, können weitere Extensions oder Vorlagen entwickeln und diese zur Aufnahme auf dieser Seite bereit stellen."
 
-#: browser/templates/frontpageview.pt:243
+#: ./browser/templates/frontpageview.pt:243
 msgid "LibreOffice remains committed to providing users with quality software authored under <a class=\"external-link\" href=\"http://www.gnu.org/philosophy/free-sw.html\">free software licenses</a>, and, as such, our catalogue of extensions and templates are published under <a class=\"external-link\" href=\"http://www.gnu.org/philosophy/free-sw.html\">free software licenses</a>."
 msgstr "LibreOffice bleibt verpflichtet, den Benutzern qualitative Software, erstellt unterr <a class=\"external-link\" href=\"http://www.gnu.org/philosophy/free-sw.html\">freien Software-Lizenzen</a> zur Verfügung zu stellen und daher wird unser Katalog von Extensions und Vorlagen (Templates) auch unter <a class=\"external-link\" href=\"http://www.gnu.org/philosophy/free-sw.html\">freien Software-Lizenzen</a> veröffentlicht."
 
-#: configure.zcml:22
+#: ./configure.zcml:22
 msgid "LibreOffice-Extensions-Templates-Site Policy"
 msgstr "LibreOffice-Extensions-Template-Site-Policy"
 
-#: browser/templates/frontpageview.pt:34
+#: ./browser/templates/frontpageview.pt:34
 msgid "Most Recent Extension Projects"
 msgstr "Aktuellste Extension-Projekte"
 
-#: browser/templates/frontpageview.pt:92
+#: ./browser/templates/frontpageview.pt:92
 msgid "Most Recent Extension Releases"
 msgstr "Aktuellste Extension-Releases"
 
-#: browser/templates/frontpageview.pt:145
+#: ./browser/templates/frontpageview.pt:145
 msgid "Most Recent Template Projects"
 msgstr "Aktuellste Voralgen-Projekte"
 
-#: browser/templates/frontpageview.pt:205
+#: ./browser/templates/frontpageview.pt:205
 msgid "Most Recent Template Releases"
 msgstr "Aktuellste Vorlagen-Releases"
 
-#: browser/templates/frontpageview.pt:226
+#: ./browser/templates/frontpageview.pt:226
 msgid "Release Summary"
 msgstr "Release-Zusammenfassung"
 
-#: browser/templates/frontpageview.pt:132
+#: ./browser/templates/frontpageview.pt:132
 msgid "Templates"
 msgstr "Vorlagen"
 
-#: patches.py:45
+#: ./patches.py:46
 msgid "Unable to send mail: ${exception}"
 msgstr "Nicht in der Lage E-Mail zu senden: ${exception}"
 
-#: configure.zcml:37
+#: ./configure.zcml:37
 msgid "Uninstalls the tdf.exttempsitepolicy add-on."
 msgstr "Deinstalliert das tdf.exttempsitepolicy Add-On."
 
-#: browser/templates/frontpageview.pt:75
+#: ./browser/templates/frontpageview.pt:75
 msgid "in"
 msgstr "in"
 
 #. Default: "Release Summary"
-#: browser/templates/frontpageview.pt:114
+#: ./browser/templates/frontpageview.pt:114
 msgid "release_summary"
 msgstr "Release Überblick"
 
-#: configure.zcml:37
+#: ./configure.zcml:37
 msgid "tdf.exttempsitepolicy"
 msgstr "tdf.exttempsitepolicy"
 
 #. Default: "Licenses"
-#: browser/templates/frontpageview.pt:242
+#: ./browser/templates/frontpageview.pt:242
 msgid "title_licenses"
 msgstr "Lizenzen"
