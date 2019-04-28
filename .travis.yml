@@ -25,7 +25,3 @@ after_success:
   - bin/createcoverage
   - pip install coverage==3.7 coveralls
   - coveralls
-
-notifications:
-  email:
-    - sneridagh@gmail.com
