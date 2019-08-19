@@ -19,11 +19,11 @@ msgid "Compatibility"
 msgstr ""
 
 #: ./browser/templates/frontpageview.pt:32
-msgid "Currently there are <span>${DYNAMIC_CONTENT}</span> LibreOffice extension project(s) with <span>${DYNAMIC_CONTENT}</span> release(s) available."
+msgid "Currently there are <span>${DYNAMIC_CONTENT}</span> LibreOffice extension projects with <span>${DYNAMIC_CONTENT}</span> releases available."
 msgstr ""
 
 #: ./browser/templates/frontpageview.pt:143
-msgid "Currently there are <span>${DYNAMIC_CONTENT}</span> LibreOffice template project(s) with <span>${DYNAMIC_CONTENT}</span> release(s) available."
+msgid "Currently there are <span>${DYNAMIC_CONTENT}</span> LibreOffice template projects with <span>${DYNAMIC_CONTENT}</span> releases available."
 msgstr ""
 
 #: ./browser/templates/frontpageview.pt:25

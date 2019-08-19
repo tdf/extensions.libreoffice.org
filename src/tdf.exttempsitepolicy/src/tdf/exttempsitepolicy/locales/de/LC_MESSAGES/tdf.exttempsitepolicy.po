@@ -22,12 +22,12 @@ msgid "Compatibility"
 msgstr "Kompatibilität"
 
 #: ./browser/templates/frontpageview.pt:32
-msgid "Currently there are <span>${DYNAMIC_CONTENT}</span> LibreOffice extension project(s) with <span>${DYNAMIC_CONTENT}</span> release(s) available."
-msgstr "Aktuell sind <span>${DYNAMIC_CONTENT}</span> LibreOffice extension project(s) mit <span>${DYNAMIC_CONTENT}</span> Release(s) verfügbar."
+msgid "Currently there are <span>${DYNAMIC_CONTENT}</span> LibreOffice extension projects with <span>${DYNAMIC_CONTENT}</span> releases available."
+msgstr "Aktuell sind <span>${DYNAMIC_CONTENT}</span> LibreOffice extension projects mit <span>${DYNAMIC_CONTENT}</span> Releases verfügbar."
 
 #: ./browser/templates/frontpageview.pt:143
-msgid "Currently there are <span>${DYNAMIC_CONTENT}</span> LibreOffice template project(s) with <span>${DYNAMIC_CONTENT}</span> release(s) available."
-msgstr "Aktuell sind <span>${DYNAMIC_CONTENT}</span> LibreOffice Vorlagen (Template) Projekte mit <span>${DYNAMIC_CONTENT}</span> Release(s) verfügbar."
+msgid "Currently there are <span>${DYNAMIC_CONTENT}</span> LibreOffice template projects with <span>${DYNAMIC_CONTENT}</span> releases available."
+msgstr "Aktuell sind <span>${DYNAMIC_CONTENT}</span> LibreOffice Vorlagen (Template) Projekte mit <span>${DYNAMIC_CONTENT}</span> Releases verfügbar."
 
 #: ./browser/templates/frontpageview.pt:25
 msgid "Extensions"
