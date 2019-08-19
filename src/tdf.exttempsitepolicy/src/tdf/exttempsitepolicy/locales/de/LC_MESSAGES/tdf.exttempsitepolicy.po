@@ -46,8 +46,8 @@ msgid "LibreOffice Extensions are tools that can be added or removed independent
 msgstr "LibreOffice Extensions sind Hilfsmittel, die unabhängig von Ihrer Installation des Hauptprogramms hinzugefügt oder entfernt werden können. Extensions fügen eventuell  neue Funktionen Ihrer Kopie von LibreOffice hinzu oder machen möglicherweise einfacher bereits existierende Funktionalität zu verwenden."
 
 #: ./browser/templates/frontpageview.pt:133
-msgid "LibreOffice Templates offer you a way to avoid duplicating repetitive actions when creating new text documents, spreadsheets, or presentations. They also offer a way to maintain consistency of document layout and standard content, and may, for example, be used to maintain consistent branding elements when used in a work place."
-msgstr "LibreOffice Vorlagen (Templates) stellen einen Weg bereit,  sich wiederholende Arbeiten zu vermeiden, wenn Sie neue Textdokumente, Tabellendokumente oder Präsentationen erstellen. Sie stellen zudem einen Weg bereit, um Konsistenz von Dokumentenlayout und Standardinhalten sicherzustellen, und können beispielsweise benutzt werden, um die Konsistenz der Markenbildung zu pflegen, wenn sie am Arbeitsplatz verwendet werden."
+msgid "LibreOffice Templates offer you a way to avoid duplicating repetitive actions when creating new documents. They also offer a way to maintain consistency of document layout, branding elements and standard content when used in a work place."
+msgstr "LibreOffice Vorlagen (Templates) stellen einen Weg bereit,  sich wiederholende Arbeiten zu vermeiden, wenn Sie neue Dokumente erstellen. Sie stellen zudem einen Weg bereit, um Konsistenz von Dokumentenlayout, der Markenbildung und Standardinhalten sicherzustellen, wenn sie am Arbeitsplatz verwendet werden."
 
 #: ./browser/templates/frontpageview.pt:17
 msgid "LibreOffice offers a wide variety of features, and when you look for additional functionality, there may well be extensions and templates that add that! This site offers a wide range of extensions and templates to satisfy your needs. What's more, people, maybe you, can develop more extensions or templates and offer them for the collecting on this site."
@@ -62,19 +62,19 @@ msgid "LibreOffice-Extensions-Templates-Site Policy"
 msgstr "LibreOffice-Extensions-Template-Site-Policy"
 
 #: ./browser/templates/frontpageview.pt:34
-msgid "Most Recent Extension Projects"
-msgstr "Aktuellste Extension-Projekte"
+msgid "Recent Extensions"
+msgstr "Aktuellste Extensions"
 
 #: ./browser/templates/frontpageview.pt:92
-msgid "Most Recent Extension Releases"
+msgid "Recent Extension Releases"
 msgstr "Aktuellste Extension-Releases"
 
 #: ./browser/templates/frontpageview.pt:145
-msgid "Most Recent Template Projects"
-msgstr "Aktuellste Voralgen-Projekte"
+msgid "Recent Template"
+msgstr "Aktuellste Voralgen"
 
 #: ./browser/templates/frontpageview.pt:205
-msgid "Most Recent Template Releases"
+msgid "Recent Template Releases"
 msgstr "Aktuellste Vorlagen-Releases"
 
 #: ./browser/templates/frontpageview.pt:226

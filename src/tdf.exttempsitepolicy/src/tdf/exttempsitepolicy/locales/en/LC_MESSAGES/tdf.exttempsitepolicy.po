@@ -43,7 +43,7 @@ msgid "LibreOffice Extensions are tools that can be added or removed independent
 msgstr ""
 
 #: ./browser/templates/frontpageview.pt:133
-msgid "LibreOffice Templates offer you a way to avoid duplicating repetitive actions when creating new text documents, spreadsheets, or presentations. They also offer a way to maintain consistency of document layout and standard content, and may, for example, be used to maintain consistent branding elements when used in a work place."
+msgid "LibreOffice Templates offer you a way to avoid duplicating repetitive actions when creating new documents. They also offer a way to maintain consistency of document layout, branding elements and standard content when used in a work place."
 msgstr ""
 
 #: ./browser/templates/frontpageview.pt:17
@@ -59,19 +59,19 @@ msgid "LibreOffice-Extensions-Templates-Site Policy"
 msgstr ""
 
 #: ./browser/templates/frontpageview.pt:34
-msgid "Most Recent Extension Projects"
+msgid "Recent Extensions"
 msgstr ""
 
 #: ./browser/templates/frontpageview.pt:92
-msgid "Most Recent Extension Releases"
+msgid "Recent Extension Releases"
 msgstr ""
 
 #: ./browser/templates/frontpageview.pt:145
-msgid "Most Recent Template Projects"
+msgid "Recent Templates"
 msgstr ""
 
 #: ./browser/templates/frontpageview.pt:205
-msgid "Most Recent Template Releases"
+msgid "Recent Template Releases"
 msgstr ""
 
 #: ./browser/templates/frontpageview.pt:226
