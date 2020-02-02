@@ -38,7 +38,7 @@ def send_message(self, data):
             subject=subject,
             charset=encoding
         )
-    except (SMTPException, RuntimeError), e:
+    except (SMTPException, RuntimeError) as e:
         log.error(e)
         plone_utils = getToolByName(portal, 'plone_utils')
         exception = plone_utils.exceptionString()
