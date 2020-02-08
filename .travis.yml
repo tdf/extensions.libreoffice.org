@@ -13,7 +13,8 @@ before_install:
   - echo "download-cache = $HOME/buildout-cache/downloads" >> $HOME/.buildout/default.cfg
   - echo "eggs-directory = $HOME/buildout-cache/eggs" >> $HOME/.buildout/default.cfg
   - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
+  - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+  - sleep 3
 install:
   - virtualenv .
   - bin/pip install -r requirements.txt
@@ -28,4 +29,4 @@ after_success:
 
 notifications:
   email:
-    - sneridagh@gmail.com
+    - maand@gmx.de
