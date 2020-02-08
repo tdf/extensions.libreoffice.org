@@ -18,7 +18,7 @@ matrix:
        dist: xenial
   sudo: true
   fast_finish: true
-addon:
+addons:
    apt:
      sources:
        - google-chrome
