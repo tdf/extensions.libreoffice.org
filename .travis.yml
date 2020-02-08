@@ -19,7 +19,7 @@ matrix:
   sudo: true
   fast_finish: true
 before_install:
-  - virtualenv -p 'which python' .
+  - virtualenv -p `which python` .
   - mkdir -p $HOME/buildout-cache/{eggs,downloads}
   - mkdir $HOME/.buildout
   - echo "[buildout]" > $HOME/.buildout/default.cfg
