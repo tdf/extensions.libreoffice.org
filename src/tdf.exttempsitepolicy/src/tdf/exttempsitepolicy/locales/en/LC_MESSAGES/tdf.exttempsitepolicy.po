@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2016-04-09 19:35+0000\n"
+"POT-Creation-Date: 2019-04-28 08:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,100 +14,96 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ./browser/templates/frontpageview.pt:30
-msgid "Currently there are ${eup_project_count} LibreOffice extension project(s) with <span>${DYNAMIC_CONTENT}</span> release(s) available."
+#: ./browser/templates/frontpageview.pt:116
+msgid "Compatibility"
 msgstr ""
 
-#: ./browser/templates/frontpageview.pt:141
-msgid "Currently there are ${tup_project_count} LibreOffice template project(s) with <span>${DYNAMIC_CONTENT}</span> release(s) available."
+#: ./browser/templates/frontpageview.pt:32
+msgid "Currently there are <span>${DYNAMIC_CONTENT}</span> LibreOffice extension projects with <span>${DYNAMIC_CONTENT}</span> releases available."
 msgstr ""
 
-#: ./configure.zcml:21
+#: ./browser/templates/frontpageview.pt:143
+msgid "Currently there are <span>${DYNAMIC_CONTENT}</span> LibreOffice template projects with <span>${DYNAMIC_CONTENT}</span> releases available."
+msgstr ""
+
+#: ./browser/templates/frontpageview.pt:25
+msgid "Extensions"
+msgstr ""
+
+#: ./configure.zcml:22
 msgid "Installs the tdf.exttempsitepolicy add-on."
 msgstr ""
 
-#: ./configure.zcml:21
+#: ./browser/templates/frontpageview.pt:15
+msgid "LibreOffice Extensions and Templates"
+msgstr ""
+
+#: ./browser/templates/frontpageview.pt:26
+msgid "LibreOffice Extensions are tools that can be added or removed independently from your installation of the main program. Extensions may add new functionality to your copy of LibreOffice, or may make existing functionality easier to use."
+msgstr ""
+
+#: ./browser/templates/frontpageview.pt:133
+msgid "LibreOffice Templates offer you a way to avoid duplicating repetitive actions when creating new documents. They also offer a way to maintain consistency of document layout, branding elements and standard content when used in a work place."
+msgstr ""
+
+#: ./browser/templates/frontpageview.pt:17
+msgid "LibreOffice offers a wide variety of features, and when you look for additional functionality, there may well be extensions and templates that add that! This site offers a wide range of extensions and templates to satisfy your needs. What's more, people, maybe you, can develop more extensions or templates and offer them for the collecting on this site."
+msgstr ""
+
+#: ./browser/templates/frontpageview.pt:243
+msgid "LibreOffice remains committed to providing users with quality software authored under <a class=\"external-link\" href=\"http://www.gnu.org/philosophy/free-sw.html\">free software licenses</a>, and, as such, our catalogue of extensions and templates are published under <a class=\"external-link\" href=\"http://www.gnu.org/philosophy/free-sw.html\">free software licenses</a>."
+msgstr ""
+
+#: ./configure.zcml:22
 msgid "LibreOffice-Extensions-Templates-Site Policy"
 msgstr ""
 
-#: ./configure.zcml:36
+#: ./browser/templates/frontpageview.pt:34
+msgid "Recent Extensions"
+msgstr ""
+
+#: ./browser/templates/frontpageview.pt:92
+msgid "Recent Extension Releases"
+msgstr ""
+
+#: ./browser/templates/frontpageview.pt:145
+msgid "Recent Templates"
+msgstr ""
+
+#: ./browser/templates/frontpageview.pt:205
+msgid "Recent Template Releases"
+msgstr ""
+
+#: ./browser/templates/frontpageview.pt:226
+msgid "Release Summary"
+msgstr ""
+
+#: ./browser/templates/frontpageview.pt:132
+msgid "Templates"
+msgstr ""
+
+#: ./patches.py:46
+msgid "Unable to send mail: ${exception}"
+msgstr ""
+
+#: ./configure.zcml:37
 msgid "Uninstalls the tdf.exttempsitepolicy add-on."
 msgstr ""
 
-#. Default: "Compatibility"
-#: ./browser/templates/frontpageview.pt:115
-msgid "compatiblity"
-msgstr ""
-
-#. Default: "LibreOffice Extensions are tools that can be added or removed independently from your installation of the main program. Extensions may add new functionality to your copy of LibreOffice, or may make existing functionality easier to use."
-#: ./browser/templates/frontpageview.pt:23
-msgid "description_extensions"
-msgstr ""
-
-#. Default: "LibreOffice offers a wide variety of features, and when you look for additional functionality, there may well be extensions and templates that add that! This site offers a wide range of extensions and templates to satisfy your needs. What's more, people, maybe you, can develop more extensions or templates and offer them for the collecting on this site."
-#: ./browser/templates/frontpageview.pt:15
-msgid "description_extensions_templates"
-msgstr ""
-
-#. Default: "LibreOffice remains committed to providing users with quality software authored under <a class=\"external-link\" href=\"http://www.gnu.org/philosophy/free-sw.html\">free software licenses</a>, and, as such, our catalogue of extensions and templates are published under <a class=\"external-link\" href=\"http://www.gnu.org/philosophy/free-sw.html\">free software licenses</a>."
-#: ./browser/templates/frontpageview.pt:242
-msgid "description_publish_free_software_license"
-msgstr ""
-
-#. Default: "LibreOffice Templates offer you a way to avoid duplicating repetitive actions when creating new text documents, spreadsheets, or presentations. They also offer a way to maintain consistency of document layout and standard content, and may, for example, be used to maintain consistent branding elements when used in a work place."
-#: ./browser/templates/frontpageview.pt:131
-msgid "description_templates"
-msgstr ""
-
-#: ./browser/templates/frontpageview.pt:74
+#: ./browser/templates/frontpageview.pt:75
 msgid "in"
 msgstr ""
 
 #. Default: "Release Summary"
-#: ./browser/templates/frontpageview.pt:113
+#: ./browser/templates/frontpageview.pt:114
 msgid "release_summary"
 msgstr ""
 
-#: ./configure.zcml:36
+#: ./configure.zcml:37
 msgid "tdf.exttempsitepolicy"
 msgstr ""
 
-#. Default: "Extensions"
-#: ./browser/templates/frontpageview.pt:22
-msgid "title_extensions"
-msgstr ""
-
-#. Default: "Most Recent Extension Releases"
-#: ./browser/templates/frontpageview.pt:91
-msgid "title_latest_extension_releases"
-msgstr ""
-
-#. Default: "Most Recent Template Releases"
-#: ./browser/templates/frontpageview.pt:203
-msgid "title_latest_template_releases"
-msgstr ""
-
-#. Default: "LibreOffice Extensions and Templates"
-#: ./browser/templates/frontpageview.pt:13
-msgid "title_libreoffice_extensions_and_templates"
-msgstr ""
-
 #. Default: "Licenses"
-#: ./browser/templates/frontpageview.pt:241
+#: ./browser/templates/frontpageview.pt:242
 msgid "title_licenses"
-msgstr ""
-
-#. Default: "Most Recent Extension Projects"
-#: ./browser/templates/frontpageview.pt:32
-msgid "title_most_recent_extension_projects"
-msgstr ""
-
-#. Default: "Most Recent Template Projects"
-#: ./browser/templates/frontpageview.pt:143
-msgid "title_most_recent_template_projects"
-msgstr ""
-
-#. Default: "Templates"
-#: ./browser/templates/frontpageview.pt:130
-msgid "title_templates"
 msgstr ""

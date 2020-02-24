@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-09-09 11:17+0000\n"
+"POT-Creation-Date: 2019-04-28 08:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,11 +22,11 @@ msgid "Compatibility"
 msgstr ""
 
 #: ./browser/templates/frontpageview.pt:32
-msgid "Currently there are <span>${DYNAMIC_CONTENT}</span> LibreOffice extension project(s) with <span>${DYNAMIC_CONTENT}</span> release(s) available."
+msgid "Currently there are <span>${DYNAMIC_CONTENT}</span> LibreOffice extension projects with <span>${DYNAMIC_CONTENT}</span> releases available."
 msgstr ""
 
 #: ./browser/templates/frontpageview.pt:143
-msgid "Currently there are <span>${DYNAMIC_CONTENT}</span> LibreOffice template project(s) with <span>${DYNAMIC_CONTENT}</span> release(s) available."
+msgid "Currently there are <span>${DYNAMIC_CONTENT}</span> LibreOffice template projects with <span>${DYNAMIC_CONTENT}</span> releases available."
 msgstr ""
 
 #: ./browser/templates/frontpageview.pt:25
@@ -46,7 +46,7 @@ msgid "LibreOffice Extensions are tools that can be added or removed independent
 msgstr ""
 
 #: ./browser/templates/frontpageview.pt:133
-msgid "LibreOffice Templates offer you a way to avoid duplicating repetitive actions when creating new text documents, spreadsheets, or presentations. They also offer a way to maintain consistency of document layout and standard content, and may, for example, be used to maintain consistent branding elements when used in a work place."
+msgid "LibreOffice Templates offer you a way to avoid duplicating repetitive actions when creating new documents. They also offer a way to maintain consistency of document layout, branding elements and standard content when used in a work place."
 msgstr ""
 
 #: ./browser/templates/frontpageview.pt:17
@@ -62,19 +62,19 @@ msgid "LibreOffice-Extensions-Templates-Site Policy"
 msgstr ""
 
 #: ./browser/templates/frontpageview.pt:34
-msgid "Most Recent Extension Projects"
+msgid "Recent Extensions"
 msgstr ""
 
 #: ./browser/templates/frontpageview.pt:92
-msgid "Most Recent Extension Releases"
+msgid "Recent Extension Releases"
 msgstr ""
 
 #: ./browser/templates/frontpageview.pt:145
-msgid "Most Recent Template Projects"
+msgid "Recent Templates"
 msgstr ""
 
 #: ./browser/templates/frontpageview.pt:205
-msgid "Most Recent Template Releases"
+msgid "Recent Template Releases"
 msgstr ""
 
 #: ./browser/templates/frontpageview.pt:226
@@ -85,7 +85,7 @@ msgstr ""
 msgid "Templates"
 msgstr ""
 
-#: ./patches.py:45
+#: ./patches.py:46
 msgid "Unable to send mail: ${exception}"
 msgstr ""
 

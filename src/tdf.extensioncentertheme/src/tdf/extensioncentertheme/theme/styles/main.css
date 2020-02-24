@@ -250,13 +250,12 @@ div.project-thumb-thumbzoom img {
   border-radius: 0.3em;
   padding-left: 0.3em;
   padding-bottom: 0.3em;
-  padding-top: 0.3em;
+  padding-top: 0.8em;
   margin-top: 20px;
   margin-bottom: 30px; }
   .current-extensionprojects span,
   .current-templateprojects span {
-    color: #00A500;
-    font-weight: bold; }
+    color: #00A500; }
 
 #by-category ol {
   padding: 0; }
