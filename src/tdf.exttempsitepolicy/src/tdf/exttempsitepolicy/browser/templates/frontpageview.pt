@@ -28,10 +28,10 @@
         of LibreOffice, or may make existing functionality easier to use.
     </p>
         <p class="current-extensionprojects" i18n:translate="">Currently there are
-                            <span tal:content="view/eupproject_count" i18n:name="" /> LibreOffice extension projects with
-                            <span tal:content="view/euprelease_count" /> releases available.
+                            <span tal:content="view/eupproject_count" i18n:name="" /> LibreOffice extension project(s) with
+                            <span tal:content="view/euprelease_count" /> release(s) available.
                     </p>
-        <h3 i18n:translate="">Recent Extensions</h3>
+        <h3 i18n:translate="">Most Recent Extension Projects</h3>
         <div class=""
                             tal:define="results python:view.get_newest_extensionprojects();
                                         Batch python:modules['Products.CMFPlone'].Batch;
@@ -89,7 +89,7 @@
 </div>
 
     <div id="latest_extension_releases">
-        <h3 i18n:translate="">Recent Extension Releases</h3>
+        <h3 i18n:translate="">Most Recent Extension Releases</h3>
         <div class=""
                             tal:define="results python:view.get_latest_ext_releases();
                                         Batch python:modules['Products.CMFPlone'].Batch;
@@ -130,19 +130,19 @@
 
    <div id="template_projects">
     <h2 i18n:translate="">Templates</h2>
-    <p i18n:translate="">LibreOffice Templates offer you a way to avoid duplicating
-        repetitive actions when creating new documents.
-        They also offer a way to maintain consistency of document layout,
-        branding elements and standard content when used in a work place.
+    <p i18n:translate="">LibreOffice Templates offer you a way to avoid duplicating repetitive actions when creating new
+        text documents, spreadsheets, or presentations. They also offer a way to maintain consistency
+        of document layout and standard content, and may, for example, be used to maintain consistent
+        branding elements when used in a work place.
     </p>
 
 
 
         <p class="current-templateprojects" i18n:translate="">Currently there are
-                            <span tal:content="view/tupproject_count" i18n:name="" /> LibreOffice template projects with
-                            <span tal:content="view/tuprelease_count" /> releases available.
+                            <span tal:content="view/tupproject_count" i18n:name="" /> LibreOffice template project(s) with
+                            <span tal:content="view/tuprelease_count" /> release(s) available.
                     </p>
-        <h3 i18n:translate="">Recent Templates</h3>
+        <h3 i18n:translate="">Most Recent Template Projects</h3>
         <div class=""
                             tal:define="results python:view.get_newest_templateprojects();
                                         Batch python:modules['Products.CMFPlone'].Batch;
@@ -202,7 +202,7 @@
        </div>
 
         <div id="latest_template_releases">
-        <h3 i18n:translate="">Recent Template Releases</h3>
+        <h3 i18n:translate="">Most Recent Template Releases</h3>
         <div class=""
                             tal:define="results python:view.get_latest_temp_releases();
                                         Batch python:modules['Products.CMFPlone'].Batch;
