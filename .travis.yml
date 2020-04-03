@@ -12,6 +12,9 @@ before_install:
   - echo "[buildout]" > $HOME/.buildout/default.cfg
   - echo "download-cache = $HOME/buildout-cache/downloads" >> $HOME/.buildout/default.cfg
   - echo "eggs-directory = $HOME/buildout-cache/eggs" >> $HOME/.buildout/default.cfg
+  - wget "https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-linux64.tar.gz"
+  - tar xfz geckodriver-v0.24.0-linux64.tar.gz
+  - sudo mv geckodriver /usr/local/bin
   - export DISPLAY=:99.0
   - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
   - sleep 3
@@ -29,4 +32,3 @@ after_success:
 notifications:
   email:
     - maand@gmx.de
-
