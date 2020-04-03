@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone import PloneMessageFactory as _
 from Products.CMFPlone.interfaces.controlpanel import IMailSchema
 from Products.statusmessages.interfaces import IStatusMessage
-from email.MIMEText import MIMEText
+from email.mime.text import MIMEText
 from plone.registry.interfaces import IRegistry
 from smtplib import SMTPException
 from zope.component import getUtility

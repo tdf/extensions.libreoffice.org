@@ -45,8 +45,6 @@ class TestUninstall(unittest.TestCase):
 
     def test_browserlayer_removed(self):
         """Test that ITdfExtensioncenterthemeLayer is removed."""
-        from tdf.extensioncentertheme.interfaces \
-            import ITdfExtensioncenterthemeLayer
+        from tdf.extensioncentertheme.interfaces import ITdfExtensioncenterthemeLayer
         from plone.browserlayer import utils
-        self.assertNotIn(ITdfExtensioncenterthemeLayer,
-                         utils.registered_layers())
+        self.assertNotIn(ITdfExtensioncenterthemeLayer, utils.registered_layers())
