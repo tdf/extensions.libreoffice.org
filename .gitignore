@@ -15,6 +15,7 @@ parts/
 var/
 htmlcov/
 eggs/
+etc/haproxy.conf
 .coverage
 *.log
 output.xml
