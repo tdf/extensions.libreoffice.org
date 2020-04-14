@@ -15,6 +15,7 @@ parts/
 var/
 htmlcov/
 eggs/
+etc/
 .coverage
 *.log
 output.xml
