@@ -54,7 +54,7 @@ msgid "LibreOffice offers a wide variety of features, and when you look for addi
 msgstr ""
 
 #: ./browser/templates/frontpageview.pt:243
-msgid "LibreOffice remains committed to providing users with quality software authored under <a class=\"external-link\" href=\"http://www.gnu.org/philosophy/free-sw.html\">free software licenses</a>, and, as such, our catalogue of extensions and templates are published under <a class=\"external-link\" href=\"http://www.gnu.org/philosophy/free-sw.html\">free software licenses</a>."
+msgid "LibreOffice remains committed to providing users with quality software authored under <a class=\"external-link\" href=\"https://www.gnu.org/philosophy/free-sw.html\">free software licenses</a>, and, as such, our catalogue of extensions and templates are published under <a class=\"external-link\" href=\"https://www.gnu.org/philosophy/free-sw.html\">free software licenses</a>."
 msgstr ""
 
 #: ./configure.zcml:22
