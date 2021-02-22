@@ -3,8 +3,8 @@
   remote_user: <remote_user>
 
   tasks:
-    # Update (Ubuntu)
-    # - apt: update_cache=yes
+    # - name: Update (Ubuntu)
+    #   apt: update_cache=yes
     #   become: yes
     # - name: Install dependencies
     #   become: yes
